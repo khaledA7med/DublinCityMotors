@@ -8,6 +8,11 @@ const routes: Routes = [
     component: HomeComponent,
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
+  {
+    path: 'view-stock',
+    loadChildren: () =>
+      import('./view-stock/view-stock.module').then((m) => m.ViewStockModule),
+  },
 ];
 
 @NgModule({
