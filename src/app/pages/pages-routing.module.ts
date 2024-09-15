@@ -16,6 +16,16 @@ const routes: Routes = [
       import('./view-stock/view-stock.module').then((m) => m.ViewStockModule),
   },
   {
+    path: 'contact-us',
+    loadChildren: () =>
+      import('./contact-us/contact-us.module').then((m) => m.ContactUsModule),
+  },
+  {
+    path: 'about-us',
+    loadChildren: () =>
+      import('./about-us/about-us.module').then((m) => m.AboutUsModule),
+  },
+  {
     path: 'product',
     loadChildren: () =>
       import('./product-details/product-details.module').then((m) => m.ProductDetailsModule),

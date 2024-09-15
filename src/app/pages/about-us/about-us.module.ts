@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ViewStockComponent } from './view-stock.component';
+import { AboutUsComponent } from './about-us.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: ViewStockComponent,
-    data: { title: 'View-Stock' },
+    component: AboutUsComponent,
+    data: { title: 'About-Us' },
   },
 ];
 @NgModule({
-  declarations: [ViewStockComponent],
-  imports: [RouterModule.forChild(routes), CommonModule,SharedModule],
+  declarations: [AboutUsComponent],
+  imports: [RouterModule.forChild(routes), CommonModule, SharedModule],
 })
-export class ViewStockModule {}
+export class AboutUsModule {}

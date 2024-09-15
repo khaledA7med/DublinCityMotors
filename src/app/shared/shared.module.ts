@@ -7,6 +7,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { CarCardComponent } from './car-card/car-card.component';
 import { RouterModule } from '@angular/router';
 import { SharedService } from './services/shared.service';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { SharedService } from './services/shared.service';
     FormsModule,
     EnquireCarModule,
     NgxSpinnerModule,
+    NgbCarouselModule,
   ],
   exports: [
     NgSelectModule,
@@ -27,6 +29,7 @@ import { SharedService } from './services/shared.service';
     EnquireCarModule,
     NgxSpinnerModule,
     CarCardComponent
+    NgbCarouselModule,
   ],
   providers: [],
 })
