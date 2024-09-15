@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
 
   private setTitleFromRouteData(routeData: any) {
     if (routeData && routeData['title']) this.title = routeData['title'];
-    else this.title = '';
+    else this.title = 'Home';
     this.titleService.setTitle(this.title + ' | Dublin City Motors');
   }
 

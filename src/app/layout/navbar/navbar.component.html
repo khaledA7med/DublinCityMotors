@@ -18,34 +18,35 @@
 
 <ng-template #content let-offcanvas>
     <div class="offcanvas-header">
-        <h4 class="offcanvas-title text-center" id="offcanvas-basic-title">Menu</h4>
         <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
     </div>
     <div class="offcanvas-body">
         <ul class="navbar-nav flex-grow-1 pe-3 text-center">
             <li class="nav-item d-flex justify-content-center">
                 <a class="nav-link active d-flex align-items-center" routerLink="/"><i class='bx bx-home me-1'></i>
-                    HOME</a>
+                    Home</a>
             </li>
             <hr>
             <li class="nav-item d-flex justify-content-center">
                 <a class="nav-link d-flex align-items-center" routerLink="/view-stock"><i
-                        class='bx bxs-dashboard me-1'></i> VIEW
-                    STOCK</a>
+                        class='bx bxs-dashboard me-1'></i> View
+                    Stock</a>
             </li>
             <hr>
             <li class="nav-item d-flex justify-content-center">
                 <a class="nav-link d-flex align-items-center" href="#"><i class='bx bx-money-withdraw me-1'></i>
-                    RECENTLY SOLD</a>
+                    Recently Sold</a>
             </li>
             <hr>
             <li class="nav-item d-flex justify-content-center">
-                <a class="nav-link d-flex align-items-center" href="#"><i class='bx bx-phone me-1'></i> GET IN TOUCH</a>
+                <a class="nav-link d-flex align-items-center" routerLink="/contact-us"><i class='bx bx-phone me-1'></i>
+                    Contact Us</a>
             </li>
             <hr>
             <li class="nav-item d-flex justify-content-center">
-                <a class="nav-link d-flex align-items-center" href="#"><i class='bx bx-info-circle me-1'></i> ABOUT
-                    US</a>
+                <a class="nav-link d-flex align-items-center" routerLink="/about-us"><i
+                        class='bx bx-info-circle me-1'></i> About
+                    Us</a>
             </li>
         </ul>
     </div>
