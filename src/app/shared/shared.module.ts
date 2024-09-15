@@ -4,12 +4,18 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { EnquireCarModule } from './enquire-car/enquire-car.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { CarCardComponent } from './car-card/car-card.component';
+import { RouterModule } from '@angular/router';
+import { SharedService } from './services/shared.service';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CarCardComponent
+  ],
   imports: [
     CommonModule,
     NgSelectModule,
+    RouterModule ,
     FormsModule,
     EnquireCarModule,
     NgxSpinnerModule,
@@ -20,6 +26,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     FormsModule,
     EnquireCarModule,
     NgxSpinnerModule,
+    CarCardComponent
   ],
+  providers: [],
 })
 export class SharedModule {}

@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { LayoutModule } from './layout/layout.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { SharedService } from './shared/services/shared.service';
 
 @NgModule({
   declarations: [AppComponent],

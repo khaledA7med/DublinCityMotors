@@ -1,0 +1,27 @@
+
+.subTitle{
+    font-size: 12px;
+    color: rgba(33, 37, 41, 0.75) ;
+    a{
+        color: rgba(33, 37, 41, 0.75) ;
+        text-decoration: none;
+    }
+    a:hover{
+        text-decoration: underline !important;
+    }
+}
+
+button.navbar-toggler i::before {
+    content: "\f039"; /* Unicode for fa-align-justify */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; /* Ensure correct weight */
+
+}
+/* On hover, change to the align-left icon */
+button.navbar-toggler:hover i::before {
+    content: "\f036"; /* Unicode for fa-align-left */
+}
+
+.foot{
+    justify-content: center;
+}
