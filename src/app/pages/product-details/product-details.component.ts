@@ -31,17 +31,6 @@ export class ProductDetailsComponent implements OnInit {
     this.sharedService.carObservable.subscribe((car) => {
       this.selectedCar = car;
     });
-    console.log(this.selectedCar);
-  }
-
-  openCarModal(){
-    this.modalRef = this.modalService.open(EnquireCarComponent, {
-      backdrop: "static",
-      size: "lg",
-      centered: true,
-      // modalDialogClass: "task-preview",
-      // backdropClass: "modal-backdrop-preview",
-    });
   }
 
   openCarModal(){
