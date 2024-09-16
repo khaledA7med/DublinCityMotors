@@ -28,8 +28,8 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     EnquireCarModule,
     NgxSpinnerModule,
-    CarCardComponent
-    NgbCarouselModule,
+    CarCardComponent,
+    NgbCarouselModule
   ],
   providers: [],
 })
