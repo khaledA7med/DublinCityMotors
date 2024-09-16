@@ -7,9 +7,8 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.scss']
+  styleUrls: ['./product-details.component.scss'],
 })
-
 export class ProductDetailsComponent implements OnInit {
   public album: Array<any> = [];
   modalRef!: NgbModalRef;
@@ -24,28 +23,25 @@ export class ProductDetailsComponent implements OnInit {
     //      caption: caption,
     //      thumb: thumb
     //   };
-
     //   this.album.push(album);
     // }
   }
-  selectedCar :any
+  selectedCar: any;
   ngOnInit(): void {
     this.sharedService.carObservable.subscribe((car) => {
-      this.selectedCar = car 
+      this.selectedCar = car;
     });
     console.log(this.selectedCar);
-    
   }
 
-  // Open lightbox gallery
-  open(index: number): void {
-      
-    this._lightbox.open(this.album, index);
-  }
-
-  // Close lightbox gallery
-  close(): void {
-    this._lightbox.close();
+  openCarModal(){
+    this.modalRef = this.modalService.open(EnquireCarComponent, {
+      backdrop: "static",
+      size: "lg",
+      centered: true,
+      // modalDialogClass: "task-preview",
+      // backdropClass: "modal-backdrop-preview",
+    });
   }
 
   openCarModal(){

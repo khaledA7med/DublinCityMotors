@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ProductDetailsComponent } from './product-details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { LightboxModule } from 'ngx-lightbox';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
@@ -14,15 +13,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    ProductDetailsComponent
-  ],
+  declarations: [ProductDetailsComponent],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
     SharedModule,
-    LightboxModule,
-    NgbNavModule
+    NgbNavModule,
   ],
 })
-export class ProductDetailsModule { }
+export class ProductDetailsModule {}

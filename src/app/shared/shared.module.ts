@@ -6,17 +6,14 @@ import { EnquireCarModule } from './enquire-car/enquire-car.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CarCardComponent } from './car-card/car-card.component';
 import { RouterModule } from '@angular/router';
-import { SharedService } from './services/shared.service';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [
-    CarCardComponent
-  ],
+  declarations: [CarCardComponent],
   imports: [
     CommonModule,
     NgSelectModule,
-    RouterModule ,
+    RouterModule,
     FormsModule,
     EnquireCarModule,
     NgxSpinnerModule,
