@@ -1,0 +1,45 @@
+.modal-body {
+  background-color: #eeeeee;
+  .btn-group {
+    .btn {
+      position: relative;
+      padding: 10px;
+      cursor: pointer;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      margin: 1px;
+
+      input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      &.active {
+        background-color: #787878;
+        color: #fff;
+      }
+
+      &:not(.active):hover {
+        background-color: #e6e6e6;
+      }
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+    }
+  }
+}
+
+.modal-header {
+  background-color: #eeeeee;
+}
+
+.modal-footer {
+  border: none;
+  background-color: #eeeeee;
+}

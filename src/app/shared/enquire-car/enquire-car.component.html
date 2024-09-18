@@ -1,1 +1,118 @@
-<p>enquire-car works!</p>
+<!-- Client details modal -->
+
+<!-- <ng-template #details let-modal> -->
+<div class="modal-header py-2">
+    <h4 class="modal-title">Car Enquiry</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body p-3">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="mb-4">
+                <label class="mb-1">Nature of Enquiry</label>
+                <div class="btn-group w-100" role="group" aria-label="Nature of Enquiry">
+                    <label class="btn btn-sm" [class.active]="selectedEnquiry === 'Test Drive'">
+                        <input type="radio" class="btn-check" name="enquiry" [(ngModel)]="selectedEnquiry"
+                            value="Test Drive" /> Test
+                        Drive
+                    </label>
+                    <label class="btn btn-sm" [class.active]="selectedEnquiry === 'General'">
+                        <input type="radio" class="btn-check" name="enquiry" [(ngModel)]="selectedEnquiry"
+                            value="General" /> General
+                    </label>
+                    <label class="btn btn-s" [class.active]="selectedEnquiry === 'Trade-in'">
+                        <input type="radio" class="btn-check" name="enquiry" [(ngModel)]="selectedEnquiry"
+                            value="Trade-in" /> Trade-in
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <!-- Contact Method Section -->
+            <div class="mb-4">
+                <label class="mb-1">Contact By</label>
+                <div class="btn-group w-100" role="group" aria-label="Contact Method">
+                    <label class="btn btn-sm" [class.active]="selectedContact === 'No Preference'">
+                        <input type="radio" class="btn-check" name="contact" [(ngModel)]="selectedContact"
+                            value="No Preference" /> No
+                        Preference
+                    </label>
+                    <label class="btn btn-sm" [class.active]="selectedContact === 'Email'">
+                        <input type="radio" class="btn-check" name="contact" [(ngModel)]="selectedContact"
+                            value="Email" /> Email
+                    </label>
+                    <label class="btn btn-sm" [class.active]="selectedContact === 'Telephone'">
+                        <input type="radio" class="btn-check" name="contact" [(ngModel)]="selectedContact"
+                            value="Telephone" /> Telephone
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 my-2 my-2">
+            <label for="">First Name</label>
+            <input class="form-control" placeholder="Your first name" type="text">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 my-2">
+            <label for="">Surname</label>
+            <input class="form-control" placeholder="Your surname" type="text">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 my-2">
+            <label for="">Contact Number</label>
+            <input class="form-control" placeholder="Your contact number" type="number">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 my-2">
+            <label for="">Enail Address</label>
+            <input class="form-control" placeholder="Your email address" type="email">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 my-2">
+            <label for="">Car Make</label>
+            <ng-select [items]="cars" placeholder="Select Make" [searchable]="true" bindLabel="name" bindValue="name"
+                id="Make"></ng-select>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 my-2">
+            <label for="">Car Model</label>
+            <ng-select [items]="models" placeholder="Select Model" [searchable]="true" bindLabel="name" bindValue="name"
+                id="Model"></ng-select>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 my-2">
+            <label for="">Car Year</label>
+            <ng-select [items]="years" placeholder="Select Year" [searchable]="true" bindLabel="name" bindValue="name"
+                id="Year"></ng-select>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 my-2"></div>
+        <div class="col-12 text-center fw-bold">
+            (Check opening hours before booking)
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 my-2">
+            <label for="">Pick Date</label>
+            <app-gregorian-picker></app-gregorian-picker>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 my-2">
+            <label for="">Pick Time</label>
+            <ng-select [items]="time" placeholder="Select time" [searchable]="true" bindLabel="name" bindValue="name"
+                id="Make"></ng-select>
+
+        </div>
+        <div class="col-12 my-2">
+            <label for="">Your Enquiry</label>
+            <textarea class="form-control" placeholder="Your enquiry" type="text"></textarea>
+        </div>
+    </div>
+
+
+
+</div>
+<div class="modal-footer py-2">
+
+    <!-- Change Status Btns -->
+    <button class="btn btn-secondary">
+        Submit
+    </button>
+
+    <!-- Close Btn -->
+    <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">
+        Close
+    </button>
+</div>

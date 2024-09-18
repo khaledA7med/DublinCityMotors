@@ -7,6 +7,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { CarCardComponent } from './car-card/car-card.component';
 import { RouterModule } from '@angular/router';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { GregorianPickerModule } from './gregorian-picker/gregorian-picker.module';
 
 @NgModule({
   declarations: [CarCardComponent],
@@ -18,6 +19,7 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     EnquireCarModule,
     NgxSpinnerModule,
     NgbCarouselModule,
+    GregorianPickerModule,
   ],
   exports: [
     NgSelectModule,
@@ -26,7 +28,8 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     EnquireCarModule,
     NgxSpinnerModule,
     CarCardComponent,
-    NgbCarouselModule
+    NgbCarouselModule,
+    GregorianPickerModule,
   ],
   providers: [],
 })
