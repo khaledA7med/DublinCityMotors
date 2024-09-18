@@ -7,6 +7,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  isLoading = false;
+
   showNavigationArrows = false;
   showNavigationIndicators = false;
   // images = [1055, 194, 368].map(
@@ -34,6 +36,6 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       /** spinner ends after 5 seconds */
       this.spinner.hide();
-    }, 5000);
+    }, 3000);
   }
 }
