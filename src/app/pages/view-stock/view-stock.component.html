@@ -1,3 +1,6 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>
 <div class="container-fluid content">
     <div class="row">
         <div class="page-title mb-5">
@@ -17,15 +20,15 @@
 
         <div class="row sort mb-5">
             <div class="col-md-3">
-                <ng-select [items]="Sort" [searchable]="true" bindLabel="name"
-                (change)="onSortChange()"  bindValue="name" id="sort" [(ngModel)]="selectedSort"></ng-select>
+                <ng-select [items]="Sort" [searchable]="true" bindLabel="name" (change)="onSortChange()"
+                    bindValue="name" id="sort" [(ngModel)]="selectedSort"></ng-select>
             </div>
         </div>
 
 
-        
+
     </div>
-    
+
     <div class="mb-4">
         <app-car-card></app-car-card>
     </div>
@@ -33,7 +36,10 @@
     <div class="row foot">
         <div class="col-md-10 text-center">
             <h2 style="color: black !important;">APPROVED USED LUXURY CARS AT DUBLIN CITY MOTORS</h2>
-            <p style="max-width: 65ch; margin: 0 auto; margin-bottom: 2em;">Our cars come with our own warranty, history report, service records, clear finance and mileage checked. We are AA Approved  and offer Free AA Roadside Rescue and 101 Safety Check. We strive to be the most competitive around when compared to like with like vehicles</p>
+            <p style="max-width: 65ch; margin: 0 auto; margin-bottom: 2em;">Our cars come with our own warranty, history
+                report, service records, clear finance and mileage checked. We are AA Approved and offer Free AA
+                Roadside Rescue and 101 Safety Check. We strive to be the most competitive around when compared to like
+                with like vehicles</p>
             <p> Call D.C.M today, or fill out an enquiry form to arrange a test drive </p>
         </div>
     </div>
@@ -66,8 +72,3 @@
         </div>
     </div>
 </ng-template>
-
-
-
-
-
