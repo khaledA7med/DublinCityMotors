@@ -1,3 +1,6 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-beat" [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>
 <div class="container details" *ngIf="selectedCar">
 
     <div class="row mb-5">
@@ -5,7 +8,7 @@
             <span class="subTitle">
                 <a routerLink="/">Home</a> / <a href="" class="mx-1"> RECENTLY SOLD</a>
                 / <a href="" class="mx-1"> Mercedes Benz</a> / <a href="" class="mx-1"> A180</a>
-                 / {{selectedCar?.title}}
+                / {{selectedCar?.title}}
             </span>
         </div>
     </div>
@@ -13,11 +16,11 @@
     <div class="row mb-5">
         <div class="col-md-6">
             <!-- <div class="gallery"> -->
-                <!-- <div *ngFor="let image of album; let i = index" class="thumbnail"> -->
-                  <!-- <img [src]="selectedCar?.image" (click)="open(i)" alt="{{ image.caption }}" /> -->
-                  <img [src]="selectedCar?.image" width="100%"/>
-                <!-- </div> -->
-              <!-- </div> -->
+            <!-- <div *ngFor="let image of album; let i = index" class="thumbnail"> -->
+            <!-- <img [src]="selectedCar?.image" (click)="open(i)" alt="{{ image.caption }}" /> -->
+            <img [src]="selectedCar?.image" width="100%" />
+            <!-- </div> -->
+            <!-- </div> -->
         </div>
 
         <div class="col-md-6">
@@ -32,7 +35,8 @@
                     <span>{{selectedCar.info.yearVal}}</span>
                 </div>
                 <div class="col-md-6 col-sm-12 d-flex justify-content-between  mb-2">
-                    <span><i class="fa-solid fa-gauge-simple-high me-2" aria-hidden="true"></i> {{selectedCar.info.MileageName}}</span>
+                    <span><i class="fa-solid fa-gauge-simple-high me-2" aria-hidden="true"></i>
+                        {{selectedCar.info.MileageName}}</span>
                     <span>{{selectedCar.info.MileageVal}}</span>
                 </div>
                 <div class="col-md-6 col-sm-12 d-flex justify-content-between mb-2">
@@ -54,7 +58,8 @@
             </div>
             <hr>
             <div class="row justify-content-around mb-3">
-                <button class="btn btn-light btn-outline-dark p-3"><i class="fa-brands fa-whatsapp me-2"></i>012963246</button>
+                <button class="btn btn-light btn-outline-dark p-3"><i
+                        class="fa-brands fa-whatsapp me-2"></i>012963246</button>
                 <button class="btn btn-secondary p-3" (click)="openCarModal()">ENQUIRE NOW</button>
             </div>
             <div class="text-center">
@@ -73,64 +78,75 @@
             <ul ngbNav #nav="ngbNav" (activeId)="1" class="nav-underline">
                 <li [ngbNavItem]="1">
                     <button class="text-muted" ngbNavLink>OVERVIEW</button>
-                    <ng-template ngbNavContent >
+                    <ng-template ngbNavContent>
                         <div class="row px-4">
                             <div class="col-md-3">
                                 <table class="table">
                                     <tbody>
-                                      <tr>
-                                        <td class="fw-bold">Make</td>
-                                        <td>Volkswagen</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="fw-bold">Model</td>
-                                        <td>Golf</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="fw-bold">Reg Year	</td>
-                                        <td>2019</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="fw-bold">Mileage	</td>
-                                        <td>29765</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="fw-bold">Fuel Type	</td>
-                                        <td>Petrol</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="fw-bold">Transmission	</td>
-                                        <td>Automatic </td>
-                                      </tr>
-                                      <tr>
-                                        <td class="fw-bold">Drive	</td>
-                                        <td>FWD</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="fw-bold">Body Type	</td>
-                                        <td>Hatchback</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="fw-bold">Exterior Color	</td>
-                                        <td>Black</td>
-                                      </tr>
-                                      <tr>
-                                        <td class="fw-bold">Interior Color	</td>
-                                        <td>Grey</td>
-                                      </tr>
+                                        <tr>
+                                            <td class="fw-bold">Make</td>
+                                            <td>Volkswagen</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Model</td>
+                                            <td>Golf</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Reg Year </td>
+                                            <td>2019</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Mileage </td>
+                                            <td>29765</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Fuel Type </td>
+                                            <td>Petrol</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Transmission </td>
+                                            <td>Automatic </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Drive </td>
+                                            <td>FWD</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Body Type </td>
+                                            <td>Hatchback</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Exterior Color </td>
+                                            <td>Black</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">Interior Color </td>
+                                            <td>Grey</td>
+                                        </tr>
                                     </tbody>
-                                  </table>
+                                </table>
                             </div>
                             <div class="col-md-9 disc">
-                                <p>We are delighted to offer this stunning Volkswagen Golf MK 7.5 1.2 TSI DSG Comfortline</p>
+                                <p>We are delighted to offer this stunning Volkswagen Golf MK 7.5 1.2 TSI DSG
+                                    Comfortline</p>
                                 <p>Finished in solid black bodywork, complemented by comfortline grey interior</p>
-                                <p>Excellent spec includes EU Map media Sat-Nav, Virtual Cockpit, Reversing Camera, Blind Spot Indicator, Lane Departure, Fog Lights, LED Door Mirror Puddle Lights, Gear shift extension, Air Conditioning, Alarm with Interior Protection, Dusk Sensor - Automatic Driving Lights, Electronic Parking Brake with Auto Hold Function, Xenon Clear Headlights - Range Adjustable - LED Daytime Running Lights, Rear Lights Incorporating LED Technology, and Leather Trimmed Multifunction Steering Wheel.</p>
-                                <p>Comes fully serviced and benefits from our comprehensive warranty and roadside assistance. </p>
+                                <p>Excellent spec includes EU Map media Sat-Nav, Virtual Cockpit, Reversing Camera,
+                                    Blind Spot Indicator, Lane Departure, Fog Lights, LED Door Mirror Puddle Lights,
+                                    Gear shift extension, Air Conditioning, Alarm with Interior Protection, Dusk Sensor
+                                    - Automatic Driving Lights, Electronic Parking Brake with Auto Hold Function, Xenon
+                                    Clear Headlights - Range Adjustable - LED Daytime Running Lights, Rear Lights
+                                    Incorporating LED Technology, and Leather Trimmed Multifunction Steering Wheel.</p>
+                                <p>Comes fully serviced and benefits from our comprehensive warranty and roadside
+                                    assistance. </p>
                                 <p>Trade in welcome, ''viewing by appointment only''.</p>
-                                <p>Offering an excellent range of carefully selected, pre-owned German cars, we supply cars of the highest quality at extremely competitive prices.</p>
-                                <p>All of our cars come with service records, finance, history checked and mileage warrantied.</p>
-                                <p>We strive to be the most competitive around when compared to like with like vehicles.</p>
-                                <p>We are located just 5 minutes from Dundrum town centre on Dundrum main road, Dublin.</p>
+                                <p>Offering an excellent range of carefully selected, pre-owned German cars, we supply
+                                    cars of the highest quality at extremely competitive prices.</p>
+                                <p>All of our cars come with service records, finance, history checked and mileage
+                                    warrantied.</p>
+                                <p>We strive to be the most competitive around when compared to like with like vehicles.
+                                </p>
+                                <p>We are located just 5 minutes from Dundrum town centre on Dundrum main road, Dublin.
+                                </p>
                                 <p>Call us today on 012963246. We look forward to doing business with you.</p>
                                 <p>Dublin City Motors Luxury Car Boutique</p>
                             </div>
@@ -142,11 +158,16 @@
                     <ng-template ngbNavContent>
                         <div class="px-4">
                             <p>
-                                Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
-                                farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
-                                ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
-                                helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
-                                8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+                                Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson
+                                artisan four loko
+                                farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer
+                                mlkshk aliquip jean shorts
+                                ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna
+                                delectus mollit. Keytar
+                                helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack
+                                odio cillum wes anderson
+                                8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel.
+                                Art party scenester
                                 stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
                             </p>
                         </div>
@@ -157,19 +178,25 @@
                     <ng-template ngbNavContent>
                         <div class="px-4">
                             <p>
-                                Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit id diam. Nulla facilisi.
-                                Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget tincidunt eu, congue et odio.
-                                Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus ultrices et. Sed diam urna,
-                                egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus faucibus nisl enim, nec
-                                tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius natoque penatibus et
-                                magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem aliquet ultricies in eget
+                                Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit
+                                id diam. Nulla facilisi.
+                                Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget
+                                tincidunt eu, congue et odio.
+                                Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus
+                                ultrices et. Sed diam urna,
+                                egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus
+                                faucibus nisl enim, nec
+                                tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius
+                                natoque penatibus et
+                                magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem
+                                aliquet ultricies in eget
                                 neque. Phasellus nec tortor vel tellus pulvinar feugiat.
                             </p>
                         </div>
                     </ng-template>
                 </li>
             </ul>
-            
+
             <div [ngbNavOutlet]="nav" class="mt-2"></div>
         </div>
     </div>
