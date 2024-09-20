@@ -12,7 +12,9 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 export class ProductDetailsComponent implements OnInit {
   public album: Array<any> = [];
   modalRef!: NgbModalRef;
-
+  isExteriorCollapsed :boolean = false;
+  isTechCollapsed :boolean = false;
+  isSafetyCollapsed :boolean = false;
   constructor(
     private sharedService: SharedService,
     private modalService: NgbModal,
@@ -38,7 +40,7 @@ export class ProductDetailsComponent implements OnInit {
       setTimeout(() => {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
-      }, 3000);
+      }, 1000);
     });
   }
 

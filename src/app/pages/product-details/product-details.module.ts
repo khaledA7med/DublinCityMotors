@@ -4,6 +4,7 @@ import { ProductDetailsComponent } from './product-details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
     CommonModule,
     SharedModule,
     NgbNavModule,
+    NgbCollapseModule
   ],
 })
 export class ProductDetailsModule {}

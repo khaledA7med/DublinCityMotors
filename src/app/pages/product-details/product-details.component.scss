@@ -32,7 +32,10 @@
     transform: scale(1.1);
 }
 .btn{
-    width: 30% 
+    width: 30% ;
+    @media (max-width: 500px){
+        width:45% ;
+    }
 }
 
 .nav-item{
