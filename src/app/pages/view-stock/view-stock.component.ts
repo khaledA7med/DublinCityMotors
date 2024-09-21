@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -6,6 +7,20 @@ import { NgxSpinnerService } from 'ngx-spinner';
   selector: 'app-view-stock',
   templateUrl: './view-stock.component.html',
   styleUrls: ['./view-stock.component.scss'],
+  animations: [
+    trigger('scaleIn', [
+      transition(':enter', [
+        style({ transform: 'scale(0)', opacity: 0 }),
+        animate(
+          '1500ms ease-out',
+          style({ transform: 'scale(1)', opacity: 1 })
+        ),
+      ]),
+      transition(':leave', [
+        animate('1500ms ease-in', style({ transform: 'scale(0)', opacity: 0 })),
+      ]),
+    ]),
+  ],
 })
 export class ViewStockComponent implements OnInit {
   @ViewChild('content') content!: ElementRef;

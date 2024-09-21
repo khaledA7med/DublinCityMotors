@@ -1,9 +1,9 @@
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-beat" [fullScreen]="true">
     <p style="color: white"> Loading... </p>
 </ngx-spinner>
-<div class="container details" *ngIf="selectedCar">
+<div class="container details" *ngIf="selectedCar" [@scaleIn]>
 
-    <div class="row mb-5">
+    <div class="row mb-5" [@scaleIn]>
         <div class="page-title">
             <span class="subTitle">
                 <a routerLink="/">Home</a> / <a href="" class="mx-1"> RECENTLY SOLD</a>
@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="row mb-5">
+    <div class="row mb-5" [@scaleIn]>
         <div class="col-md-6">
             <!-- <div class="gallery"> -->
             <!-- <div *ngFor="let image of album; let i = index" class="thumbnail"> -->
@@ -58,8 +58,8 @@
             </div>
             <hr>
             <div class="row justify-content-around mb-3">
-                <button class="btn btn-light btn-outline-dark p-3"><i
-                        class="fa-brands fa-whatsapp me-2"></i>012963246</button>
+                <a class="btn btn-light btn-outline-dark p-3" href="https://wa.me/012963246" target="_blank"><i
+                        class="fa-brands fa-whatsapp me-2"></i>012963246</a>
                 <button class="btn btn-secondary p-3" (click)="openCarModal()">ENQUIRE NOW</button>
             </div>
             <div class="text-center">
@@ -73,7 +73,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" [@scaleIn]>
         <div class="col-md-12 bg-light p-3">
             <ul ngbNav #nav="ngbNav" (activeId)="1" class="nav-underline">
                 <li [ngbNavItem]="1">

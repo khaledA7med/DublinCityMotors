@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { NgbModalRef, NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
+import { NgbOffcanvas, NgbOffcanvasRef } from '@ng-bootstrap/ng-bootstrap';
 import { filter, map, mergeMap } from 'rxjs';
 
 @Component({
@@ -20,7 +20,7 @@ import { filter, map, mergeMap } from 'rxjs';
 export class NavbarComponent implements OnInit {
   title: string = '';
   @ViewChild('content') content!: ElementRef;
-  modalRef!: NgbModalRef;
+  offcanvasRef!: NgbOffcanvasRef; // Changed to NgbOffcanvasRef
 
   constructor(
     private offcanvasService: NgbOffcanvas,
@@ -28,11 +28,16 @@ export class NavbarComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {}
+
   ngOnInit(): void {
     this.subscribeToRouteChangeEvents();
+    this.subscribeToNavigationEvents();
   }
+
   openNav() {
-    this.offcanvasService.open(this.content, { position: 'end' });
+    this.offcanvasRef = this.offcanvasService.open(this.content, {
+      position: 'end',
+    });
   }
 
   private setTitleFromRouteData(routeData: any) {
@@ -49,7 +54,6 @@ export class NavbarComponent implements OnInit {
   }
 
   private subscribeToRouteChangeEvents() {
-    // Set initial title
     const latestRoute = this.getLatestChild(this.route);
     if (latestRoute) {
       this.setTitleFromRouteData(latestRoute.data.getValue());
@@ -64,6 +68,16 @@ export class NavbarComponent implements OnInit {
       )
       .subscribe((event) => {
         this.setTitleFromRouteData(event);
+      });
+  }
+
+  private subscribeToNavigationEvents() {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        if (this.offcanvasRef) {
+          this.offcanvasRef.dismiss(); // Close the off-canvas when navigating
+        }
       });
   }
 }

@@ -3,40 +3,43 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { EnquireCarComponent } from 'src/app/shared/enquire-car/enquire-car.component';
 import { SharedService } from 'src/app/shared/services/shared.service';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss'],
+  animations: [
+    trigger('scaleIn', [
+      transition(':enter', [
+        style({ transform: 'scale(0)', opacity: 0 }),
+        animate(
+          '1500ms ease-out',
+          style({ transform: 'scale(1)', opacity: 1 })
+        ),
+      ]),
+      transition(':leave', [
+        animate('1500ms ease-in', style({ transform: 'scale(0)', opacity: 0 })),
+      ]),
+    ]),
+  ],
 })
 export class ProductDetailsComponent implements OnInit {
   public album: Array<any> = [];
   modalRef!: NgbModalRef;
+  selectedCar: any;
 
   constructor(
     private sharedService: SharedService,
     private modalService: NgbModal,
     private spinner: NgxSpinnerService
-  ) {
-    // for (let i = 1; i <= 4; i++) {
-    //   const src = 'demo/img/image' + i + '.jpg';
-    //   const caption = 'Image ' + i + ' caption here';
-    //   const thumb = 'demo/img/image' + i + '-thumb.jpg';
-    //   const album = {
-    //      src: src,
-    //      caption: caption,
-    //      thumb: thumb
-    //   };
-    //   this.album.push(album);
-    // }
-  }
-  selectedCar: any;
+  ) {}
+
   ngOnInit(): void {
     this.spinner.show();
     this.sharedService.carObservable.subscribe((car) => {
       this.selectedCar = car;
       setTimeout(() => {
-        /** spinner ends after 5 seconds */
         this.spinner.hide();
       }, 3000);
     });
@@ -47,8 +50,6 @@ export class ProductDetailsComponent implements OnInit {
       backdrop: 'static',
       size: 'lg',
       centered: true,
-      // modalDialogClass: "task-preview",
-      // backdropClass: "modal-backdrop-preview",
     });
   }
 }

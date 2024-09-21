@@ -4,9 +4,34 @@
 @import "bootstrap/scss/bootstrap";
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
+.content {
+  margin-top: 150px;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
 
-.content{
-    margin-top: 150px;
-    margin-bottom: 30px;
-    padding: 0 20px;
+/* Custom Scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1); /* Track color */
+  border-radius: 10px; /* Rounded corners for track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5); /* Scrollbar color */
+  border-radius: 10px; /* Rounded corners for scrollbar */
+}
+
+/* Optional: Change scrollbar color on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.8); /* Darker scrollbar on hover */
+}
+
+/* Custom Scrollbar for Firefox */
+* {
+  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1); /* Thumb color, Track color */
+  scrollbar-width: thin; /* Thin scrollbar */
 }

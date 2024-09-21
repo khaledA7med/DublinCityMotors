@@ -1,7 +1,7 @@
 <div class="row mb-5" *ngIf="cars">
     <div class="col-md-3 col-sm-6 px-1" (click)="getCar(index)" *ngFor="let car of cars ; let index ">
-        <div class="card" >
-           <a> <img [src]="car.image" class="card-img-top" alt="..."></a>
+        <div class="card">
+            <a> <img [src]="car.image" class="card-img-top" alt="..."></a>
             <div class="card-body">
                 <div class="title text-center mb-3">
                     <p class="mb-0">{{car.title}}</p>
@@ -35,29 +35,32 @@
                         <span class="value">Automatic</span>
                     </div>
                 </div> -->
-                <div class="row car text-muted">
-                    <div class="col-lg-5 px-0 pe-sm-2 col-md-12 col-sm-12 d-flex justify-content-between ">
-                        <span><i class="fa fa-calendar" aria-hidden="true"></i> {{car.info.yearName}}</span>
+                <div class="row car text-muted mb-3"> <!-- Space between car rows -->
+                    <div class="col-lg-5 col-md-6 col-sm-12 d-flex justify-content-between px-2 mb-2">
+                        <!-- Added margin-bottom -->
+                        <span><i class="fa fa-calendar me-2" aria-hidden="true"></i> {{car.info.yearName}}</span>
                         <span>{{car.info.yearVal}}</span>
                     </div>
-                    <div class="col-lg-7 px-0 col-md-12 col-sm-12 d-flex justify-content-between">
-                        <span><i class="fa-solid fa-gauge-simple-high"></i> {{car.info.MileageName}}</span>
+                    <div class="col-lg-7 col-md-6 col-sm-12 d-flex justify-content-between px-2 mb-2">
+                        <span><i class="fa-solid fa-gauge-simple-high me-2"></i> {{car.info.MileageName}}</span>
                         <span>{{car.info.MileageVal}}</span>
                     </div>
-                    <div class="col-lg-5 px-0 pe-sm-2 col-md-12 col-sm-12 d-flex justify-content-between">
-                        <span><i class="fa-solid fa-gas-pump"></i>{{car.info.FuelTypeName}}</span>
+                    <div class="col-lg-5 col-md-6 col-sm-12 d-flex justify-content-between px-2 mb-2">
+                        <span><i class="fa-solid fa-gas-pump me-2"></i> {{car.info.FuelTypeName}}</span>
                         <span>{{car.info.FuelTypeVal}}</span>
                     </div>
-                    <div class="col-lg-7 px-0 col-md-12 col-sm-12 d-flex justify-content-between">
-                        <span><i class="fa-solid fa-gas-pump"></i> {{car.info.TransmissionName}}</span>
+                    <div class="col-lg-7 col-md-6 col-sm-12 d-flex justify-content-between px-2 mb-2">
+                        <span><i class="fa-solid fa-gas-pump me-2"></i> {{car.info.TransmissionName}}</span>
                         <span>{{car.info.TransmissionVal}}</span>
                     </div>
                 </div>
+
+
             </div>
-          </div>
+        </div>
     </div>
     <div class="col-md-3 col-sm-6  px-1">
-        <div class="card" >
+        <div class="card">
             <img src="/assets/images/stock/2.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <div class="title text-center mb-3">
@@ -111,10 +114,10 @@
                     </div>
                 </div>
             </div>
-          </div>
+        </div>
     </div>
     <div class="col-md-3 col-sm-6  px-1">
-        <div class="card" >
+        <div class="card">
             <img src="/assets/images/stock/3.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <div class="title text-center mb-3">
@@ -168,10 +171,10 @@
                     </div>
                 </div>
             </div>
-          </div>
+        </div>
     </div>
     <div class="col-md-3 col-sm-6  px-1">
-        <div class="card" >
+        <div class="card">
             <img src="/assets/images/stock/4.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <div class="title text-center mb-3">
@@ -225,26 +228,26 @@
                     </div>
                 </div>
             </div>
-          </div>
+        </div>
     </div>
 
 </div>
 <div class="row text-center">
     <nav class="d-flex justify-content-center" aria-label="Page navigation example">
         <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li class="page-item"><a class="page-link">1</a></li>
-          <li class="page-item"><a class="page-link">2</a></li>
-          <li class="page-item"><a class="page-link">3</a></li>
-          <li class="page-item">
-            <a class="page-link"  aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
+            <li class="page-item">
+                <a class="page-link" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link">1</a></li>
+            <li class="page-item"><a class="page-link">2</a></li>
+            <li class="page-item"><a class="page-link">3</a></li>
+            <li class="page-item">
+                <a class="page-link" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
         </ul>
     </nav>
 </div>

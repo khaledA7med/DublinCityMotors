@@ -1,8 +1,8 @@
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-beat" [fullScreen]="true">
     <p style="color: white"> Loading... </p>
 </ngx-spinner>
-<div class="container-fluid content">
-    <div class="row">
+<div class="container-fluid content" [@scaleIn]>
+    <div class="row" [@scaleIn]>
         <div class="page-title mb-5">
             <h3 class="fw-bold">VIEW STOCK</h3>
             <span class="subTitle">
@@ -29,11 +29,11 @@
 
     </div>
 
-    <div class="mb-4">
+    <div class="mb-4" [@scaleIn]>
         <app-car-card></app-car-card>
     </div>
 
-    <div class="row foot">
+    <div class="row foot" [@scaleIn]>
         <div class="col-md-10 text-center">
             <h2 style="color: black !important;">APPROVED USED LUXURY CARS AT DUBLIN CITY MOTORS</h2>
             <p style="max-width: 65ch; margin: 0 auto; margin-bottom: 2em;">Our cars come with our own warranty, history
