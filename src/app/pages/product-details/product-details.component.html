@@ -156,20 +156,92 @@
                 <li [ngbNavItem]="2">
                     <button class="text-muted" ngbNavLink>SPECIFICATION</button>
                     <ng-template ngbNavContent>
-                        <div class="px-4">
-                            <p>
-                                Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson
-                                artisan four loko
-                                farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer
-                                mlkshk aliquip jean shorts
-                                ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna
-                                delectus mollit. Keytar
-                                helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack
-                                odio cillum wes anderson
-                                8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel.
-                                Art party scenester
-                                stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
-                            </p>
+                        <!-- Exterior -->
+                        <div class="px-4 py-3 bg-white mb-3">
+                            <div class="row justify-content-between" style="cursor: pointer;" (click)="collapse1.toggle()"
+                             [attr.aria-expanded]="!isExteriorCollapsed" aria-controls="collapseExample">
+                                <h5 class="text-dark fw-bold mb-3 w-50">
+                                Exterior
+                            </h5>
+                            <i class="fa w-50 text-end" [ngClass]="!isExteriorCollapsed ? 'fa-caret-down' :  'fa-caret-up'" aria-hidden="true"></i>
+                            </div>
+                            <div class="row px-3" #collapse1="ngbCollapse" [(ngbCollapse)]="isExteriorCollapsed">
+                                <div class="col-md-3 mb-3">
+                                   <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted"> Alloy wheels</span>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                   <i class="fa-brands fa-twitch me-2"></i> <span class=" text-muted">Electric folding mirrors</span> 
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Fog lights</span> 
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">LED</span> 
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tech -->
+                        <div class="px-4 py-3 bg-white mb-3">
+                            <div class="row justify-content-between" style="cursor: pointer;" (click)="collapse2.toggle()"
+                             [attr.aria-expanded]="!isTechCollapsed" aria-controls="collapseExample">
+                                <h5 class="text-dark fw-bold mb-3 w-50">
+                                Tech
+                            </h5>
+                            <i class="fa w-50 text-end" [ngClass]="!isTechCollapsed ? 'fa-caret-down' :  'fa-caret-up'" aria-hidden="true"></i>
+                            </div>
+                            <div class="row px-3" #collapse2="ngbCollapse" [(ngbCollapse)]="isTechCollapsed">
+                                <div class="col-md-3 mb-3">
+                                   <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Satellite Navigation System</span>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                   <i class="fa-brands fa-twitch me-2"></i> <span class=" text-muted">Audi MMI</span> 
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Bluetooth Interface</span> 
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">AUX / USB</span> 
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">MP3 / CD</span> 
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Auto stop / start</span> 
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Safety -->
+                        <div class="px-4 py-3 bg-white mb-3">
+                            <div class="row justify-content-between" style="cursor: pointer;" (click)="collapse3.toggle()"
+                             [attr.aria-expanded]="!isSafetyCollapsed" aria-controls="collapseExample">
+                                <h5 class="text-dark fw-bold mb-3 w-50">
+                                Safety
+                            </h5>
+                            <i class="fa w-50 text-end" [ngClass]="!isSafetyCollapsed ? 'fa-caret-down' :  'fa-caret-up'" aria-hidden="true"></i>
+                            </div>
+                            <div class="row px-3" #collapse3="ngbCollapse" [(ngbCollapse)]="isSafetyCollapsed">
+                                <div class="col-md-3 mb-3">
+                                   <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Parking assist</span>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                   <i class="fa-brands fa-twitch me-2"></i> <span class=" text-muted">ISOFIX</span> 
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Multiple airbags</span> 
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">ABS</span> 
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">ESP</span> 
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Traction control</span>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Hill keep assist</span> 
+                                </div>
+                            </div>
                         </div>
                     </ng-template>
                 </li>
@@ -177,21 +249,38 @@
                     <button class="text-muted" ngbNavLink>TECHNICAL</button>
                     <ng-template ngbNavContent>
                         <div class="px-4">
-                            <p>
-                                Sed commodo, leo at suscipit dictum, quam est porttitor sapien, eget sodales nibh elit
-                                id diam. Nulla facilisi.
-                                Donec egestas ligula vitae odio interdum aliquet. Duis lectus turpis, luctus eget
-                                tincidunt eu, congue et odio.
-                                Duis pharetra et nisl at faucibus. Quisque luctus pulvinar arcu, et molestie lectus
-                                ultrices et. Sed diam urna,
-                                egestas ut ipsum vel, volutpat volutpat neque. Praesent fringilla tortor arcu. Vivamus
-                                faucibus nisl enim, nec
-                                tristique ipsum euismod facilisis. Morbi ut bibendum est, eu tincidunt odio. Orci varius
-                                natoque penatibus et
-                                magnis dis parturient montes, nascetur ridiculus mus. Mauris aliquet odio ac lorem
-                                aliquet ultricies in eget
-                                neque. Phasellus nec tortor vel tellus pulvinar feugiat.
-                            </p>
+                            <table class="table">
+                                <tbody class="px-3">
+                                    <tr>
+                                        <td class="fw-bold">Engine Size</td>
+                                        <td>1.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Fuel Type</td>
+                                        <td>Petrol</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Cylinders</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Drive Axle</td>
+                                        <td>Front</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">BHP</td>
+                                        <td>190</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Co2 Emissions</td>
+                                        <td>129</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">NOX</td>
+                                        <td>g/km</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </ng-template>
                 </li>
