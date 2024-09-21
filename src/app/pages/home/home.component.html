@@ -2,7 +2,7 @@
     <p style="color: white"> Loading... </p>
 </ngx-spinner>
 <div class="caro mt-4" [@scaleIn]>
-    <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows"
+    <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [interval]="2000" [pauseOnHover]="false"
         [showNavigationIndicators]="showNavigationIndicators">
         <ng-template ngbSlide *ngFor="let image of images">
             <div class="picsum-img-wrapper">
