@@ -9,6 +9,14 @@
   object-position: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.Content {
+  margin-top: 15px !important;
 }
 
 p {
@@ -61,9 +69,15 @@ p {
 
 #con img {
   display: block;
-  width: 600px;
-  height: 700px;
+  height: 200px;
+  // width: 400px;
+  //width: 600px;
+  //height: 700px;
   transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
 }
 
 #con:hover img {
