@@ -14,6 +14,8 @@ import {
   animate,
   AnimationEvent,
 } from '@angular/animations';
+import { FilterService } from 'src/app/shared/services/filter.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -49,6 +51,10 @@ export class HomeComponent implements OnInit {
   orientation: string = 'out'; // Initial state for both sections
   animationTriggered = false; // Prevent re-triggering the animation
 
+  selectedMake!: string;
+  selectedModel!: string;
+  selectedYear!: string;
+
   @ViewChild('animatedSection', { static: true }) animatedSection!: ElementRef;
 
   showNavigationArrows = false;
@@ -64,7 +70,11 @@ export class HomeComponent implements OnInit {
   models = [{ name: 'A4' }, { name: 'X5' }, { name: 'C-Class' }];
   years = [{ name: '2020' }, { name: '2021' }, { name: '2022' }];
 
-  constructor(private spinner: NgxSpinnerService) {}
+  constructor(
+    private spinner: NgxSpinnerService,
+    private router: Router,
+    private filterService: FilterService
+  ) {}
 
   ngOnInit(): void {
     this.spinner.show();
@@ -110,5 +120,16 @@ export class HomeComponent implements OnInit {
   debouncedScroll = this.debounce(() => this.onScroll(), 100); // Debounce by 100ms
   onAnimationDone(event: AnimationEvent) {
     // You can handle post-animation logic here
+  }
+
+  onSearch() {
+    // Store the filter data in the service
+    this.filterService.setFilterData(
+      this.selectedMake,
+      this.selectedModel,
+      this.selectedYear
+    );
+    // Navigate to the stock page
+    this.router.navigate(['/view-stock']);
   }
 }

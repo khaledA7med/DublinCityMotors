@@ -53,22 +53,25 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
     </div>
     <div class="offcanvas-body">
-        <div class="row pe-3 justify-content-center">
-            <div class="col-10 mb-4">
-                <ng-select [items]="cars" placeholder="Select Make" [searchable]="true" bindLabel="name"
-                    bindValue="name" id="Make"></ng-select>
+        <form [formGroup]="filterForm">
+            <div class="row pe-3 justify-content-center">
+                <div class="col-10 mb-4">
+                    <ng-select [items]="cars" placeholder="Select Make" name="make" formControlName="carMake"
+                        [searchable]="true" bindLabel="name" bindValue="name" id="Make"></ng-select>
+                </div>
+                <div class="col-10 mb-4">
+                    <ng-select [items]="models" placeholder="Select Model" name="model" formControlName="carModel"
+                        [searchable]="true" bindLabel="name" bindValue="name" id="Model"></ng-select>
+                </div>
+                <div class="col-10 mb-4">
+                    <ng-select [items]="years" placeholder="Select Year" name="year" formControlName="carYear"
+                        [searchable]="true" bindLabel="name" bindValue="name" id="Year"></ng-select>
+                </div>
+                <div class="col-10 ">
+                    <button type="submit" class="btn btn-secondary w-100 py-2 font-weight-bold"
+                        (click)="onFilter(filterForm)">Search</button>
+                </div>
             </div>
-            <div class="col-10 mb-4">
-                <ng-select [items]="models" placeholder="Select Model" [searchable]="true" bindLabel="name"
-                    bindValue="name" id="Model"></ng-select>
-            </div>
-            <div class="col-10 mb-4">
-                <ng-select [items]="years" placeholder="Select Year" [searchable]="true" bindLabel="name"
-                    bindValue="name" id="Year"></ng-select>
-            </div>
-            <div class="col-10 ">
-                <button class="btn btn-secondary w-100 py-2 font-weight-bold">Search</button>
-            </div>
-        </div>
+        </form>
     </div>
 </ng-template>

@@ -15,31 +15,33 @@
 <div class="row my-lg-5 py-lg-5 mx-5 d-flex justify-content-between deta" #animatedSection>
     <div class="col-12 col-lg-6 text-center mb-5 mb-lg-0" [@rightSecState]="orientation"
         (@rightSecState.done)="onAnimationDone($event)">
-        <h1 class="display-4 font-weight-bold">Dublin City Motors</h1>
+        <h1 class="display-4 font-weight-bold">Welcome to Dublin City Motors</h1>
         <h4 class="text-secondary mb-3">Luxury Car Boutique</h4>
         <p class="text-muted px-4">
-            Welcome to Dublin City Motors luxury car boutique. We specialise in offering an excellent range of carefully
-            selected, pre-owned Audi and BMWs and supply cars of the highest quality at extremely competitive prices.
+            At Dublin City Motors, we have the professional knowledge and expertise to help you at every
+            step from buying to owning your luxury vehicle. Specialising in pre-owned Audi and BWMs, all
+            of our cars are carefully selected and meticulously prepared so that you can be assured of <br>
+            excellent quality and value.
         </p>
     </div>
     <div class="col-12 col-lg-6 d-flex justify-content-center" [@leftSecState]="orientation"
         (@leftSecState.done)="onAnimationDone($event)">
-        <form class="w-100">
+        <form class="w-100" (ngSubmit)="onSearch()">
             <div class="row d-flex justify-content-center">
                 <div class="col-8 mb-3">
-                    <ng-select [items]="cars" placeholder="Select Make" [searchable]="true" bindLabel="name"
-                        bindValue="name" id="Make"></ng-select>
+                    <ng-select [items]="cars" placeholder="Select Make" name="make" [searchable]="true" bindLabel="name"
+                        [(ngModel)]="selectedMake" bindValue="name" id="Make"></ng-select>
                 </div>
                 <div class="col-8 mb-3">
-                    <ng-select [items]="models" placeholder="Select Model" [searchable]="true" bindLabel="name"
-                        bindValue="name" id="Model"></ng-select>
+                    <ng-select [items]="models" placeholder="Select Model" name="model" [searchable]="true"
+                        bindLabel="name" [(ngModel)]="selectedModel" bindValue="name" id="Model"></ng-select>
                 </div>
                 <div class="col-8 mb-3">
-                    <ng-select [items]="years" placeholder="Select Year" [searchable]="true" bindLabel="name"
-                        bindValue="name" id="Year"></ng-select>
+                    <ng-select [items]="years" placeholder="Select Year" name="year" [searchable]="true"
+                        bindLabel="name" [(ngModel)]="selectedYear" bindValue="name" id="Year"></ng-select>
                 </div>
                 <div class="col-8 mb-3">
-                    <button class="btn btn-secondary w-100 py-2 font-weight-bold">Search</button>
+                    <button type="submit" class="btn btn-secondary w-100 py-2 font-weight-bold">Search</button>
                 </div>
             </div>
         </form>
