@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { EnquireCarComponent } from './enquire-car.component';
 import { GregorianPickerModule } from '../gregorian-picker/gregorian-picker.module';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [EnquireCarComponent],
@@ -13,6 +14,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     GregorianPickerModule,
     NgSelectModule,
     ReactiveFormsModule,
+    NgxSpinnerModule,
   ],
 })
 export class EnquireCarModule {}
