@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EnquireCarModule } from './enquire-car/enquire-car.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CarCardComponent } from './car-card/car-card.component';
@@ -20,6 +20,7 @@ import { GregorianPickerModule } from './gregorian-picker/gregorian-picker.modul
     NgxSpinnerModule,
     NgbCarouselModule,
     GregorianPickerModule,
+    ReactiveFormsModule,
   ],
   exports: [
     NgSelectModule,
@@ -30,6 +31,7 @@ import { GregorianPickerModule } from './gregorian-picker/gregorian-picker.modul
     CarCardComponent,
     NgbCarouselModule,
     GregorianPickerModule,
+    ReactiveFormsModule,
   ],
   providers: [],
 })

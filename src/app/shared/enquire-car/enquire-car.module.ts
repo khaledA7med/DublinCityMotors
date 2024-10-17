@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EnquireCarComponent } from './enquire-car.component';
@@ -7,6 +7,12 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [EnquireCarComponent],
-  imports: [CommonModule, FormsModule, GregorianPickerModule, NgSelectModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    GregorianPickerModule,
+    NgSelectModule,
+    ReactiveFormsModule,
+  ],
 })
 export class EnquireCarModule {}

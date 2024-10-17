@@ -14,11 +14,6 @@ const routes: Routes = [
 ];
 @NgModule({
   declarations: [ViewStockComponent],
-  imports: [
-    RouterModule.forChild(routes),
-    CommonModule,
-    SharedModule,
-    ReactiveFormsModule,
-  ],
+  imports: [RouterModule.forChild(routes), CommonModule, SharedModule],
 })
 export class ViewStockModule {}

@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import {
   NgbActiveModal,
   NgbCalendar,
   NgbDateStruct,
   NgbModal,
 } from '@ng-bootstrap/ng-bootstrap';
+import AppUtils from '../models/util';
+import { CarEnquiry } from '../models/carEquiry';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-enquire-car',
   templateUrl: './enquire-car.component.html',
   styleUrls: ['./enquire-car.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class EnquireCarComponent implements OnInit {
   selectedEnquiry: string = 'Test Drive'; // Default selection
@@ -17,6 +22,9 @@ export class EnquireCarComponent implements OnInit {
 
   model!: NgbDateStruct;
   date!: { year: number; month: number };
+
+  formGroup!: FormGroup<CarEnquiry>;
+  submitted: boolean = false;
 
   time = [
     { id: 0, name: '10:00 AM' },
@@ -39,9 +47,17 @@ export class EnquireCarComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     public modal: NgbActiveModal,
-    private calendar: NgbCalendar
+    private calendar: NgbCalendar,
+    private appUtils: AppUtils,
+    private spinner: NgxSpinnerService
   ) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.initForm();
+  }
+
+  setDate(e: any) {
+    this.f.pickDate?.patchValue(this.appUtils.dateFormater(e.gon) as any);
+  }
 
   selectToday() {
     this.model = this.calendar.getToday();
@@ -50,5 +66,44 @@ export class EnquireCarComponent implements OnInit {
   // To Do back to main route when close modal
   backToMainRoute() {
     this.modal.close();
+  }
+
+  initForm() {
+    this.formGroup = new FormGroup<CarEnquiry>({
+      natureEnquiry: new FormControl('Test Drive'), // Default value
+      contactBy: new FormControl('No Preference'), // Default value
+      firstName: new FormControl(''),
+      surName: new FormControl(''),
+      contactNumber: new FormControl(''),
+      email: new FormControl(''),
+      carMake: new FormControl(''),
+      carModel: new FormControl(''),
+      carYear: new FormControl(''),
+      pickDate: new FormControl(null),
+      pickTime: new FormControl(''),
+      enquiry: new FormControl(''),
+    });
+  }
+
+  get f() {
+    return this.formGroup.controls;
+  }
+
+  changeTest(e: any) {
+    console.log(e);
+  }
+  changeTest1(e: any) {
+    console.log(e);
+  }
+
+  onSubmit(form: FormGroup) {
+    this.submitted = true;
+    this.spinner.show();
+
+    console.log(form.value);
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 3000);
   }
 }
