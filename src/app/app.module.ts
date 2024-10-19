@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { LayoutModule } from './layout/layout.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     LayoutModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgxSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

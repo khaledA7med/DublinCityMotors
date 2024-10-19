@@ -9,6 +9,7 @@ import {
 import { FormControl, FormGroup } from '@angular/forms';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Filter } from 'src/app/shared/models/carFillter';
 import { FilterService } from 'src/app/shared/services/filter.service';
 import { CarsService } from 'src/app/shared/services/pagesServices/cars.service';
 
@@ -35,7 +36,9 @@ import { CarsService } from 'src/app/shared/services/pagesServices/cars.service'
 export class ViewStockComponent implements OnInit {
   filteredStock!: any[];
 
-  filterForm!: FormGroup<any>;
+  allCars: any[] = [];
+
+  filterForm!: FormGroup<Filter>;
 
   @ViewChild('content') content!: ElementRef;
   Sort = [
@@ -61,34 +64,28 @@ export class ViewStockComponent implements OnInit {
 
   ngOnInit(): void {
     this.initFilterForm();
-    this.spinner.show();
 
     const filterData = this.filterService.getFilterData();
-    if (filterData) {
+    console.log(filterData);
+
+    if (filterData.length !== 0) {
       this.filterForm.patchValue({
-        carMake: filterData.make,
-        carModel: filterData.model,
-        carYear: filterData.year,
+        make: filterData[0],
+        model: filterData[1],
+        regYear: filterData[2],
       });
 
-      console.log(this.filterForm.value);
+      this.onFilter();
+    } else {
+      this.getAllCars();
     }
-
-    // this.carsService.getCars(make, model, year).subscribe((x) => {
-    //   console.log('cars filterd successfully', x);
-    // });
-
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 3000);
   }
 
   initFilterForm(): void {
-    this.filterForm = new FormGroup({
-      carMake: new FormControl(''),
-      carModel: new FormControl(''),
-      carYear: new FormControl(''),
+    this.filterForm = new FormGroup<Filter>({
+      make: new FormControl(''),
+      model: new FormControl(''),
+      regYear: new FormControl(null),
     });
   }
 
@@ -103,7 +100,30 @@ export class ViewStockComponent implements OnInit {
     console.log(this.selectedSort);
   }
 
-  onFilter(filterForm: any) {
-    console.log(filterForm);
+  onFilter() {
+    this.spinner.show();
+    this.carsService
+      .getCars(
+        this.f.make?.value!,
+        this.f.model?.value!,
+        +this.f.regYear.value!
+      )
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.spinner.hide();
+        },
+      });
+  }
+
+  getAllCars() {
+    this.spinner.show();
+    this.carsService.getAllCars().subscribe({
+      next: (res) => {
+        this.allCars = res;
+        console.log(this.allCars);
+        this.spinner.hide();
+      },
+    });
   }
 }

@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
 
   selectedMake!: string;
   selectedModel!: string;
-  selectedYear!: string;
+  selectedYear!: number;
 
   @ViewChild('animatedSection', { static: true }) animatedSection!: ElementRef;
 

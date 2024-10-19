@@ -6,10 +6,10 @@ import { Injectable } from '@angular/core';
 export class FilterService {
   constructor() {}
 
-  private filterData: any = {};
+  private filterData: any[] = [];
 
-  setFilterData(make: string, model: string, year: string) {
-    this.filterData = { make, model, year };
+  setFilterData(make: string, model: string, year: number) {
+    this.filterData = [make, model, +year];
   }
 
   getFilterData() {
@@ -17,6 +17,6 @@ export class FilterService {
   }
 
   clearFilterData() {
-    this.filterData = {};
+    this.filterData = [];
   }
 }

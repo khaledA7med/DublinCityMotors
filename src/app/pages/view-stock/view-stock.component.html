@@ -30,7 +30,7 @@
     </div>
 
     <div class="mb-4" [@scaleIn]>
-        <app-car-card></app-car-card>
+        <app-car-card [allCars]="allCars"></app-car-card>
     </div>
 
     <div class="row foot" [@scaleIn]>
@@ -53,23 +53,22 @@
         <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
     </div>
     <div class="offcanvas-body">
-        <form [formGroup]="filterForm">
+        <form [formGroup]="filterForm" (ngSubmit)="onFilter()">
             <div class="row pe-3 justify-content-center">
                 <div class="col-10 mb-4">
-                    <ng-select [items]="cars" placeholder="Select Make" name="make" formControlName="carMake"
+                    <ng-select [items]="cars" placeholder="Select Make" name="make" formControlName="make"
                         [searchable]="true" bindLabel="name" bindValue="name" id="Make"></ng-select>
                 </div>
                 <div class="col-10 mb-4">
-                    <ng-select [items]="models" placeholder="Select Model" name="model" formControlName="carModel"
+                    <ng-select [items]="models" placeholder="Select Model" name="model" formControlName="model"
                         [searchable]="true" bindLabel="name" bindValue="name" id="Model"></ng-select>
                 </div>
                 <div class="col-10 mb-4">
-                    <ng-select [items]="years" placeholder="Select Year" name="year" formControlName="carYear"
+                    <ng-select [items]="years" placeholder="Select Year" name="year" formControlName="regYear"
                         [searchable]="true" bindLabel="name" bindValue="name" id="Year"></ng-select>
                 </div>
                 <div class="col-10 ">
-                    <button type="submit" class="btn btn-secondary w-100 py-2 font-weight-bold"
-                        (click)="onFilter(filterForm)">Search</button>
+                    <button type="submit" class="btn btn-secondary w-100 py-2 font-weight-bold">Search</button>
                 </div>
             </div>
         </form>

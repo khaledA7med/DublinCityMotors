@@ -1,234 +1,33 @@
-<div class="row mb-5" *ngIf="cars">
-    <div class="col-md-3 col-sm-6 px-1" (click)="getCar(index)" *ngFor="let car of cars ; let index ">
+<div class="row mb-5" *ngIf="allCars">
+    <div class="col-md-3 col-sm-6 px-1" (click)="getCar(car)" *ngFor="let car of allCars ; let index ">
         <div class="card">
-            <a> <img [src]="car.image" class="card-img-top" alt="..."></a>
+            <!-- <a> <img [src]="car.image" class="card-img-top" alt="..."></a> -->
+            <a> <img src="../../../assets/images/stock/1.jpg" class="card-img-top" alt="..."></a>
             <div class="card-body">
                 <div class="title text-center mb-3">
-                    <p class="mb-0">{{car.title}}</p>
-                    <span>{{car.price}}</span>
+                    <p class="mb-0">{{car.name}}</p>
+                    <span class="text-muted">€{{car.price}}</span>
                 </div>
-                <!-- <div class="car-details">
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-                            <span><i class="fa fa-calendar" aria-hidden="true"></i> Reg Year</span>
-                        </div>
-                        <span class="value">2019</span>
-                    </div>
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-                            <span><i class="fa-solid fa-gauge-simple-high"></i> Mileage</span>
-                        </div>
-                        <span class="value">30409</span>
-                    </div>
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-
-                        <span><i class="fa-solid fa-gas-pump"></i> Fuel Type</span>
-                    </div>
-
-                        <span class="value">Petrol</span>
-                    </div>
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-                            <span><i class="fa-solid fa-gas-pump"></i> Transmission</span>
-                        </div>
-                        <span class="value">Automatic</span>
-                    </div>
-                </div> -->
                 <div class="row car text-muted mb-3"> <!-- Space between car rows -->
                     <div class="col-lg-5 col-md-12 col-sm-12 d-flex justify-content-between px-2 mb-2">
-                        <!-- Added margin-bottom -->
                         <span class="text-muted"><i class="fa fa-calendar me-2" aria-hidden="true"></i>
-                            {{car.info.yearName}}</span>
-                        <span class="text-muted">{{car.info.yearVal}}</span>
+                            regYear</span>
+                        <span class="text-muted">{{car.regYear}}</span>
                     </div>
                     <div class="col-lg-7 col-md-12 col-sm-12 d-flex justify-content-between px-2 mb-2">
                         <span class="text-muted"><i class="fa-solid fa-gauge-simple-high me-2"></i>
-                            {{car.info.MileageName}}</span>
-                        <span class="text-muted">{{car.info.MileageVal}}</span>
+                            Mileage</span>
+                        <span class="text-muted">{{car.mileage}}</span>
                     </div>
                     <div class="col-lg-5 col-md-12 col-sm-12 d-flex justify-content-between px-2 mb-2">
                         <span class="text-muted"><i class="fa-solid fa-gas-pump me-2"></i>
-                            {{car.info.FuelTypeName}}</span>
-                        <span class="text-muted">{{car.info.FuelTypeVal}}</span>
+                            Fuel Type</span>
+                        <span class="text-muted">{{car.fuelType}}</span>
                     </div>
                     <div class="col-lg-7 col-md-12 col-sm-12 d-flex justify-content-between px-2 mb-2">
                         <span class="text-muted"><i class="fa-solid fa-gas-pump me-2"></i>
-                            {{car.info.TransmissionName}}</span>
-                        <span class="text-muted">{{car.info.TransmissionVal}}</span>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6  px-1">
-        <div class="card">
-            <img src="/assets/images/stock/2.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="title text-center mb-3">
-                    <p class="mb-0">Mercedes Benz A180 AMG S</p>
-                    <span>POA</span>
-                </div>
-                <!-- <div class="car-details">
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-                            <span><i class="fa fa-calendar" aria-hidden="true"></i> Reg Year</span>
-                        </div>
-                        <span class="value">2019</span>
-                    </div>
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-                            <span><i class="fa-solid fa-gauge-simple-high"></i> Mileage</span>
-                        </div>
-                        <span class="value">30409</span>
-                    </div>
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-
-                        <span><i class="fa-solid fa-gas-pump"></i> Fuel Type</span>
-                    </div>
-
-                        <span class="value">Petrol</span>
-                    </div>
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-                            <span><i class="fa-solid fa-gas-pump"></i> Transmission</span>
-                        </div>
-                        <span class="value">Automatic</span>
-                    </div>
-                </div> -->
-                <div class="row car">
-                    <div class="col-lg-6 px-0 pe-sm-1 col-md-12 col-sm-12 d-flex justify-content-between ">
-                        <span><i class="fa fa-calendar" aria-hidden="true"></i> Reg Year</span>
-                        <span>2019</span>
-                    </div>
-                    <div class="col-lg-6 px-0 col-md-12 col-sm-12 d-flex justify-content-between">
-                        <span><i class="fa-solid fa-gauge-simple-high"></i> Mileage</span>
-                        <span>30409</span>
-                    </div>
-                    <div class="col-lg-6 px-0 pe-sm-1 col-md-12 col-sm-12 d-flex justify-content-between">
-                        <span><i class="fa-solid fa-gas-pump"></i> Fuel Type</span>
-                        <span>Petrol</span>
-                    </div>
-                    <div class="col-lg-6 px-0 col-md-12 col-sm-12 d-flex justify-content-between">
-                        <span><i class="fa-solid fa-gas-pump"></i> Transmission</span>
-                        <span>Automatic</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6  px-1">
-        <div class="card">
-            <img src="/assets/images/stock/3.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="title text-center mb-3">
-                    <p class="mb-0">Mercedes Benz A180 AMG S</p>
-                    <span>POA</span>
-                </div>
-                <!-- <div class="car-details">
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-                            <span><i class="fa fa-calendar" aria-hidden="true"></i> Reg Year</span>
-                        </div>
-                        <span class="value">2019</span>
-                    </div>
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-                            <span><i class="fa-solid fa-gauge-simple-high"></i> Mileage</span>
-                        </div>
-                        <span class="value">30409</span>
-                    </div>
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-
-                        <span><i class="fa-solid fa-gas-pump"></i> Fuel Type</span>
-                    </div>
-
-                        <span class="value">Petrol</span>
-                    </div>
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-                            <span><i class="fa-solid fa-gas-pump"></i> Transmission</span>
-                        </div>
-                        <span class="value">Automatic</span>
-                    </div>
-                </div> -->
-                <div class="row car">
-                    <div class="col-lg-6 px-0 pe-sm-1 col-md-12 col-sm-12 d-flex justify-content-between ">
-                        <span><i class="fa fa-calendar" aria-hidden="true"></i> Reg Year</span>
-                        <span>2019</span>
-                    </div>
-                    <div class="col-lg-6 px-0 col-md-12 col-sm-12 d-flex justify-content-between">
-                        <span><i class="fa-solid fa-gauge-simple-high"></i> Mileage</span>
-                        <span>30409</span>
-                    </div>
-                    <div class="col-lg-6 px-0 pe-sm-1 col-md-12 col-sm-12 d-flex justify-content-between">
-                        <span><i class="fa-solid fa-gas-pump"></i> Fuel Type</span>
-                        <span>Petrol</span>
-                    </div>
-                    <div class="col-lg-6 px-0 col-md-12 col-sm-12 d-flex justify-content-between">
-                        <span><i class="fa-solid fa-gas-pump"></i> Transmission</span>
-                        <span>Automatic</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-6  px-1">
-        <div class="card">
-            <img src="/assets/images/stock/4.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <div class="title text-center mb-3">
-                    <p class="mb-0">Mercedes Benz A180 AMG S</p>
-                    <span>POA</span>
-                </div>
-                <!-- <div class="car-details">
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-                            <span><i class="fa fa-calendar" aria-hidden="true"></i> Reg Year</span>
-                        </div>
-                        <span class="value">2019</span>
-                    </div>
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-                            <span><i class="fa-solid fa-gauge-simple-high"></i> Mileage</span>
-                        </div>
-                        <span class="value">30409</span>
-                    </div>
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-
-                        <span><i class="fa-solid fa-gas-pump"></i> Fuel Type</span>
-                    </div>
-
-                        <span class="value">Petrol</span>
-                    </div>
-                    <div class="labeliconvalue">
-                        <div class="labelicon">
-                            <span><i class="fa-solid fa-gas-pump"></i> Transmission</span>
-                        </div>
-                        <span class="value">Automatic</span>
-                    </div>
-                </div> -->
-                <div class="row car">
-                    <div class="col-lg-6 px-0 pe-sm-1 col-md-12 col-sm-12 d-flex justify-content-between ">
-                        <span><i class="fa fa-calendar" aria-hidden="true"></i> Reg Year</span>
-                        <span>2019</span>
-                    </div>
-                    <div class="col-lg-6 px-0 col-md-12 col-sm-12 d-flex justify-content-between">
-                        <span><i class="fa-solid fa-gauge-simple-high"></i> Mileage</span>
-                        <span>30409</span>
-                    </div>
-                    <div class="col-lg-6 px-0 pe-sm-1 col-md-12 col-sm-12 d-flex justify-content-between">
-                        <span><i class="fa-solid fa-gas-pump"></i> Fuel Type</span>
-                        <span>Petrol</span>
-                    </div>
-                    <div class="col-lg-6 px-0 col-md-12 col-sm-12 d-flex justify-content-between">
-                        <span><i class="fa-solid fa-gas-pump"></i> Transmission</span>
-                        <span>Automatic</span>
+                            Transmission</span>
+                        <span class="text-muted">{{car.transmission}}</span>
                     </div>
                 </div>
             </div>
@@ -236,7 +35,7 @@
     </div>
 
 </div>
-<div class="row text-center">
+<!-- <div class="row text-center">
     <nav class="d-flex justify-content-center" aria-label="Page navigation example">
         <ul class="pagination">
             <li class="page-item">
@@ -254,4 +53,4 @@
             </li>
         </ul>
     </nav>
-</div>
+</div> -->

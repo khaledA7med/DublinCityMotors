@@ -8,7 +8,7 @@
             <span class="subTitle">
                 <a routerLink="/">Home</a> / <a href="" class="mx-1"> RECENTLY SOLD</a>
                 / <a href="" class="mx-1"> Mercedes Benz</a> / <a href="" class="mx-1"> A180</a>
-                / {{selectedCar?.title}}
+                / {{selectedCar?.name}}
             </span>
         </div>
     </div>
@@ -25,35 +25,35 @@
 
         <div class="col-md-6">
             <div class="text-center mb-5">
-                <h2>{{selectedCar.title}}</h2>
+                <h2>{{selectedCar.name}}</h2>
                 <span>{{selectedCar.price}}</span>
             </div>
             <hr>
             <div class="row px-5 px-sm-0 mb-3">
                 <div class="col-md-6 col-sm-12 d-flex justify-content-between mb-2">
-                    <span><i class="fa fa-calendar me-2" aria-hidden="true"></i> {{selectedCar.info.yearName}}</span>
-                    <span>{{selectedCar.info.yearVal}}</span>
+                    <span><i class="fa fa-calendar me-2" aria-hidden="true"></i> Reg Year</span>
+                    <span>{{selectedCar.regYear}}</span>
                 </div>
                 <div class="col-md-6 col-sm-12 d-flex justify-content-between  mb-2">
                     <span><i class="fa-solid fa-gauge-simple-high me-2" aria-hidden="true"></i>
-                        {{selectedCar.info.MileageName}}</span>
-                    <span>{{selectedCar.info.MileageVal}}</span>
+                        Mileage</span>
+                    <span>{{selectedCar.mileage}}</span>
                 </div>
                 <div class="col-md-6 col-sm-12 d-flex justify-content-between mb-2">
-                    <span><i class="fa-solid fa-gas-pump me-2"></i> {{selectedCar.info.FuelTypeName}}</span>
-                    <span>{{selectedCar.info.FuelTypeVal}}</span>
+                    <span><i class="fa-solid fa-gas-pump me-2"></i> Fuel Type</span>
+                    <span>{{selectedCar.fuelType}}</span>
                 </div>
                 <div class="col-md-6 col-sm-12 d-flex justify-content-between mb-2">
-                    <span><i class="fa-solid fa-gas-pump me-2"></i> {{selectedCar.info.TransmissionName}}</span>
-                    <span>{{selectedCar.info.TransmissionVal}}</span>
+                    <span><i class="fa-solid fa-gas-pump me-2"></i> Transmission</span>
+                    <span>{{selectedCar.transmission}}</span>
                 </div>
                 <div class="col-md-6 col-sm-12 d-flex justify-content-between mb-2">
                     <span><i class="fa-solid fa-fingerprint me-2"></i> Drive</span>
-                    <span>FWD</span>
+                    <span>{{selectedCar.drive}}</span>
                 </div>
                 <div class="col-md-6 col-sm-12 d-flex justify-content-between mb-2">
                     <span><i class="fa-solid fa-car me-2"></i> Body Type</span>
-                    <span>SUV</span>
+                    <span>{{selectedCar?.bodyType}}</span>
                 </div>
             </div>
             <hr>
@@ -85,70 +85,51 @@
                                     <tbody>
                                         <tr>
                                             <td class="fw-bold">Make</td>
-                                            <td>Volkswagen</td>
+                                            <td>{{selectedCar.make}}</td>
                                         </tr>
                                         <tr>
                                             <td class="fw-bold">Model</td>
-                                            <td>Golf</td>
+                                            <td>{{selectedCar.model}}</td>
                                         </tr>
                                         <tr>
                                             <td class="fw-bold">Reg Year </td>
-                                            <td>2019</td>
+                                            <td>{{selectedCar.regYear}}</td>
                                         </tr>
                                         <tr>
                                             <td class="fw-bold">Mileage </td>
-                                            <td>29765</td>
+                                            <td>{{selectedCar.mileage}}</td>
                                         </tr>
                                         <tr>
                                             <td class="fw-bold">Fuel Type </td>
-                                            <td>Petrol</td>
+                                            <td>{{selectedCar.fuelType}}</td>
                                         </tr>
                                         <tr>
                                             <td class="fw-bold">Transmission </td>
-                                            <td>Automatic </td>
+                                            <td>{{selectedCar.transmission}} </td>
                                         </tr>
                                         <tr>
                                             <td class="fw-bold">Drive </td>
-                                            <td>FWD</td>
+                                            <td>{{selectedCar.drive}}</td>
                                         </tr>
                                         <tr>
                                             <td class="fw-bold">Body Type </td>
-                                            <td>Hatchback</td>
+                                            <td>{{selectedCar?.bodyType}}</td>
                                         </tr>
                                         <tr>
                                             <td class="fw-bold">Exterior Color </td>
-                                            <td>Black</td>
+                                            <td>{{selectedCar.exteriorColor}}</td>
                                         </tr>
                                         <tr>
                                             <td class="fw-bold">Interior Color </td>
-                                            <td>Grey</td>
+                                            <td>{{selectedCar.interiorColor}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="col-md-9 disc">
-                                <p>We are delighted to offer this stunning Volkswagen Golf MK 7.5 1.2 TSI DSG
-                                    Comfortline</p>
-                                <p>Finished in solid black bodywork, complemented by comfortline grey interior</p>
-                                <p>Excellent spec includes EU Map media Sat-Nav, Virtual Cockpit, Reversing Camera,
-                                    Blind Spot Indicator, Lane Departure, Fog Lights, LED Door Mirror Puddle Lights,
-                                    Gear shift extension, Air Conditioning, Alarm with Interior Protection, Dusk Sensor
-                                    - Automatic Driving Lights, Electronic Parking Brake with Auto Hold Function, Xenon
-                                    Clear Headlights - Range Adjustable - LED Daytime Running Lights, Rear Lights
-                                    Incorporating LED Technology, and Leather Trimmed Multifunction Steering Wheel.</p>
-                                <p>Comes fully serviced and benefits from our comprehensive warranty and roadside
-                                    assistance. </p>
-                                <p>Trade in welcome, ''viewing by appointment only''.</p>
-                                <p>Offering an excellent range of carefully selected, pre-owned German cars, we supply
-                                    cars of the highest quality at extremely competitive prices.</p>
-                                <p>All of our cars come with service records, finance, history checked and mileage
-                                    warrantied.</p>
-                                <p>We strive to be the most competitive around when compared to like with like vehicles.
+                                <p>
+                                    {{selectedCar.shortDescription}}
                                 </p>
-                                <p>We are located just 5 minutes from Dundrum town centre on Dundrum main road, Dublin.
-                                </p>
-                                <p>Call us today on 012963246. We look forward to doing business with you.</p>
-                                <p>Dublin City Motors Luxury Car Boutique</p>
                             </div>
                         </div>
                     </ng-template>
@@ -156,90 +137,77 @@
                 <li [ngbNavItem]="2">
                     <button class="text-muted" ngbNavLink>SPECIFICATION</button>
                     <ng-template ngbNavContent>
+                        <!-- Interior -->
+                        <div class="px-4 py-3 bg-white mb-3">
+                            <div class="row justify-content-between" style="cursor: pointer;"
+                                (click)="collapse1.toggle()" [attr.aria-expanded]="!isInteriorCollapsed"
+                                aria-controls="collapseExample">
+                                <h5 class="text-dark fw-bold mb-3 w-50">
+                                    Interior
+                                </h5>
+                                <i class="fa w-50 text-end"
+                                    [ngClass]="!isInteriorCollapsed ? 'fa-caret-down' :  'fa-caret-up'"
+                                    aria-hidden="true"></i>
+                            </div>
+                            <div class="row px-3" #collapse1="ngbCollapse" [(ngbCollapse)]="isInteriorCollapsed">
+                                <div class="col-md-3 mb-3" *ngFor="let interior of selectedCar?.interiors">
+                                    <i class="fa-brands fa-twitch me-2"></i><span
+                                        class=" text-muted">{{interior}}</span>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Exterior -->
                         <div class="px-4 py-3 bg-white mb-3">
-                            <div class="row justify-content-between" style="cursor: pointer;" (click)="collapse1.toggle()"
-                             [attr.aria-expanded]="!isExteriorCollapsed" aria-controls="collapseExample">
+                            <div class="row justify-content-between" style="cursor: pointer;"
+                                (click)="collapse1.toggle()" [attr.aria-expanded]="!isExteriorCollapsed"
+                                aria-controls="collapseExample">
                                 <h5 class="text-dark fw-bold mb-3 w-50">
-                                Exterior
-                            </h5>
-                            <i class="fa w-50 text-end" [ngClass]="!isExteriorCollapsed ? 'fa-caret-down' :  'fa-caret-up'" aria-hidden="true"></i>
+                                    Exterior
+                                </h5>
+                                <i class="fa w-50 text-end"
+                                    [ngClass]="!isExteriorCollapsed ? 'fa-caret-down' :  'fa-caret-up'"
+                                    aria-hidden="true"></i>
                             </div>
                             <div class="row px-3" #collapse1="ngbCollapse" [(ngbCollapse)]="isExteriorCollapsed">
-                                <div class="col-md-3 mb-3">
-                                   <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted"> Alloy wheels</span>
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                   <i class="fa-brands fa-twitch me-2"></i> <span class=" text-muted">Electric folding mirrors</span> 
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Fog lights</span> 
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">LED</span> 
+                                <div class="col-md-3 mb-3" *ngFor="let exterior of selectedCar?.exteriors">
+                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">
+                                        {{exterior}}</span>
                                 </div>
                             </div>
                         </div>
                         <!-- Tech -->
                         <div class="px-4 py-3 bg-white mb-3">
-                            <div class="row justify-content-between" style="cursor: pointer;" (click)="collapse2.toggle()"
-                             [attr.aria-expanded]="!isTechCollapsed" aria-controls="collapseExample">
+                            <div class="row justify-content-between" style="cursor: pointer;"
+                                (click)="collapse2.toggle()" [attr.aria-expanded]="!isTechCollapsed"
+                                aria-controls="collapseExample">
                                 <h5 class="text-dark fw-bold mb-3 w-50">
-                                Tech
-                            </h5>
-                            <i class="fa w-50 text-end" [ngClass]="!isTechCollapsed ? 'fa-caret-down' :  'fa-caret-up'" aria-hidden="true"></i>
+                                    Tech
+                                </h5>
+                                <i class="fa w-50 text-end"
+                                    [ngClass]="!isTechCollapsed ? 'fa-caret-down' :  'fa-caret-up'"
+                                    aria-hidden="true"></i>
                             </div>
                             <div class="row px-3" #collapse2="ngbCollapse" [(ngbCollapse)]="isTechCollapsed">
-                                <div class="col-md-3 mb-3">
-                                   <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Satellite Navigation System</span>
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                   <i class="fa-brands fa-twitch me-2"></i> <span class=" text-muted">Audi MMI</span> 
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Bluetooth Interface</span> 
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">AUX / USB</span> 
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">MP3 / CD</span> 
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Auto stop / start</span> 
+                                <div class="col-md-3 mb-3" *ngFor="let tech of selectedCar?.teches">
+                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted"> {{tech}}</span>
                                 </div>
                             </div>
                         </div>
                         <!-- Safety -->
                         <div class="px-4 py-3 bg-white mb-3">
-                            <div class="row justify-content-between" style="cursor: pointer;" (click)="collapse3.toggle()"
-                             [attr.aria-expanded]="!isSafetyCollapsed" aria-controls="collapseExample">
+                            <div class="row justify-content-between" style="cursor: pointer;"
+                                (click)="collapse3.toggle()" [attr.aria-expanded]="!isSafetyCollapsed"
+                                aria-controls="collapseExample">
                                 <h5 class="text-dark fw-bold mb-3 w-50">
-                                Safety
-                            </h5>
-                            <i class="fa w-50 text-end" [ngClass]="!isSafetyCollapsed ? 'fa-caret-down' :  'fa-caret-up'" aria-hidden="true"></i>
+                                    Safety
+                                </h5>
+                                <i class="fa w-50 text-end"
+                                    [ngClass]="!isSafetyCollapsed ? 'fa-caret-down' :  'fa-caret-up'"
+                                    aria-hidden="true"></i>
                             </div>
                             <div class="row px-3" #collapse3="ngbCollapse" [(ngbCollapse)]="isSafetyCollapsed">
-                                <div class="col-md-3 mb-3">
-                                   <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Parking assist</span>
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                   <i class="fa-brands fa-twitch me-2"></i> <span class=" text-muted">ISOFIX</span> 
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Multiple airbags</span> 
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">ABS</span> 
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">ESP</span> 
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Traction control</span>
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">Hill keep assist</span> 
+                                <div class="col-md-3 mb-3" *ngFor="let safty of selectedCar?.safeties">
+                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted"> {{safty}}</span>
                                 </div>
                             </div>
                         </div>

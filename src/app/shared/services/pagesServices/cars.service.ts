@@ -1,17 +1,20 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CarsService {
+  private readonly env: string = environment.ApiUrl;
+
   constructor(private http: HttpClient) {}
-  getCars(
-    make: string,
-    model: string,
-    year: string
-  ): Observable<HttpResponse<any>> {
-    return this.http.post<any>('', { make, model, year });
+
+  getAllCars(): Observable<any> {
+    return this.http.get<any>(this.env + 'cars/all');
+  }
+  getCars(make: string, model: string, year: number): Observable<any> {
+    return this.http.post<any>(this.env + 'cars/filter', { make, model, year });
   }
 }

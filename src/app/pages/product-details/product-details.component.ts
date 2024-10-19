@@ -28,6 +28,7 @@ export class ProductDetailsComponent implements OnInit {
   public album: Array<any> = [];
   modalRef!: NgbModalRef;
   selectedCar: any;
+  isInteriorCollapsed: boolean = false;
   isExteriorCollapsed: boolean = false;
   isTechCollapsed: boolean = false;
   isSafetyCollapsed: boolean = false;
@@ -41,6 +42,8 @@ export class ProductDetailsComponent implements OnInit {
     this.spinner.show();
     this.sharedService.carObservable.subscribe((car) => {
       this.selectedCar = car;
+      console.log(this.selectedCar);
+
       setTimeout(() => {
         this.spinner.hide();
       }, 1000);
