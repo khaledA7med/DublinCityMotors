@@ -26,14 +26,15 @@ const routes: Routes = [
       import('./about-us/about-us.module').then((m) => m.AboutUsModule),
   },
   {
-    path: 'product',
+    path: 'product/:id',
     loadChildren: () =>
-      import('./product-details/product-details.module').then((m) => m.ProductDetailsModule),
+      import('./product-details/product-details.module').then(
+        (m) => m.ProductDetailsModule
+      ),
   },
   {
     path: 'recently-sold',
-    loadChildren: () =>
-      import('./sold/sold.module').then((m) => m.SoldModule),
+    loadChildren: () => import('./sold/sold.module').then((m) => m.SoldModule),
   },
 ];
 

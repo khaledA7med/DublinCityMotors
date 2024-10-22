@@ -74,14 +74,14 @@
     </div>
 
     <div class="row" [@scaleIn]>
-        <div class="col-md-12 bg-light p-3">
-            <ul ngbNav #nav="ngbNav" (activeId)="1" class="nav-underline">
+        <div class="col-md-12 bg-none p-3">
+            <ul ngbNav #nav="ngbNav" (activeId)="1" class="nav-underline nav-justified">
                 <li [ngbNavItem]="1">
                     <button class="text-muted" ngbNavLink>OVERVIEW</button>
                     <ng-template ngbNavContent>
                         <div class="row px-4">
                             <div class="col-md-3">
-                                <table class="table">
+                                <table class="table table-hover">
                                     <tbody>
                                         <tr>
                                             <td class="fw-bold">Make</td>
@@ -217,25 +217,25 @@
                     <button class="text-muted" ngbNavLink>TECHNICAL</button>
                     <ng-template ngbNavContent>
                         <div class="px-4">
-                            <table class="table">
+                            <table class="table w-25 table-hover">
                                 <tbody class="px-3">
-                                    <tr>
+                                    <tr class="px-3">
                                         <td class="fw-bold">Engine Size</td>
-                                        <td>1.0</td>
+                                        <td>{{selectedCar.engineSize}}</td>
                                     </tr>
                                     <tr>
                                         <td class="fw-bold">Fuel Type</td>
-                                        <td>Petrol</td>
+                                        <td>{{selectedCar.fuelType}}</td>
                                     </tr>
                                     <tr>
                                         <td class="fw-bold">Cylinders</td>
-                                        <td>4</td>
+                                        <td>{{selectedCar.cylinders}}</td>
                                     </tr>
                                     <tr>
                                         <td class="fw-bold">Drive Axle</td>
-                                        <td>Front</td>
+                                        <td>{{selectedCar.driveAxle}}</td>
                                     </tr>
-                                    <tr>
+                                    <!-- <tr>
                                         <td class="fw-bold">BHP</td>
                                         <td>190</td>
                                     </tr>
@@ -246,7 +246,7 @@
                                     <tr>
                                         <td class="fw-bold">NOX</td>
                                         <td>g/km</td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
                         </div>

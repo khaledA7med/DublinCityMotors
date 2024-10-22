@@ -22,9 +22,9 @@ export class CarCardComponent implements OnInit {
     // this.getAllCars();
   }
 
-  getCar(index: any) {
-    this.sharedService.sendCarData(index);
-    this.router.navigate(['/product']);
+  getCar(car_id: any) {
+    // this.sharedService.sendCarData(index);
+    this.router.navigate(['/product', car_id]);
   }
 
   getAllCars() {

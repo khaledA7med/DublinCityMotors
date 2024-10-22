@@ -14,7 +14,15 @@ export class CarsService {
   getAllCars(): Observable<any> {
     return this.http.get<any>(this.env + 'cars/all');
   }
-  getCars(make: string, model: string, year: number): Observable<any> {
+  getCarsByFilter(make: string, model: string, year: number): Observable<any> {
     return this.http.post<any>(this.env + 'cars/filter', { make, model, year });
+  }
+
+  getCarById(data: any): Observable<any> {
+    return this.http.post<any>(this.env + 'cars/getCarById', data);
+  }
+
+  enquireCar(data: any): Observable<any> {
+    return this.http.post<any>(this.env + 'cars/addEnquiry', data);
   }
 }

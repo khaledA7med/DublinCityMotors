@@ -4,6 +4,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { EnquireCarComponent } from 'src/app/shared/enquire-car/enquire-car.component';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { ActivatedRoute } from '@angular/router';
+import { CarsService } from 'src/app/shared/services/pagesServices/cars.service';
 
 @Component({
   selector: 'app-product-details',
@@ -25,6 +27,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
   ],
 })
 export class ProductDetailsComponent implements OnInit {
+  car_id!: any;
   public album: Array<any> = [];
   modalRef!: NgbModalRef;
   selectedCar: any;
@@ -35,18 +38,17 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private sharedService: SharedService,
     private modalService: NgbModal,
-    private spinner: NgxSpinnerService
+    private spinner: NgxSpinnerService,
+    private route: ActivatedRoute,
+    private carsService: CarsService
   ) {}
 
   ngOnInit(): void {
-    this.spinner.show();
-    this.sharedService.carObservable.subscribe((car) => {
-      this.selectedCar = car;
-      console.log(this.selectedCar);
-
-      setTimeout(() => {
-        this.spinner.hide();
-      }, 1000);
+    this.route.paramMap.subscribe((res) => {
+      if (res.get('id')) {
+        this.car_id = res.get('id')!;
+        this.getCar(this.car_id);
+      }
     });
   }
 
@@ -55,6 +57,24 @@ export class ProductDetailsComponent implements OnInit {
       backdrop: 'static',
       size: 'lg',
       centered: true,
+    });
+
+    this.modalRef.componentInstance.carEnquiry = this.selectedCar;
+  }
+
+  getCar(id: any) {
+    this.spinner.show();
+    let data = {
+      car_id: id,
+    };
+
+    this.carsService.getCarById(data).subscribe({
+      next: (res) => {
+        if (res) {
+          this.selectedCar = res;
+          this.spinner.hide();
+        }
+      },
     });
   }
 }

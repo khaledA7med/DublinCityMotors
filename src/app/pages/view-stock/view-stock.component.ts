@@ -103,7 +103,7 @@ export class ViewStockComponent implements OnInit {
   onFilter() {
     this.spinner.show();
     this.carsService
-      .getCars(
+      .getCarsByFilter(
         this.f.make?.value!,
         this.f.model?.value!,
         +this.f.regYear.value!

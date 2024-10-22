@@ -7,6 +7,7 @@ export interface CarEnquiry {
   surName: FormControl<string | null>;
   contactNumber: FormControl<string | null>;
   email: FormControl<string | null>;
+  // carName: FormControl<string | null>;
   carMake: FormControl<string | null>;
   carModel: FormControl<string | null>;
   carYear: FormControl<string | null>;

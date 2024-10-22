@@ -1,59 +1,59 @@
-.details{
-    margin-top: 150px;
-    margin-bottom: 50px;
+.details {
+  margin-top: 150px;
+  margin-bottom: 50px;
 }
 
-.subTitle{
-    font-size: 12px;
-    color: rgba(33, 37, 41, 0.75) ;
-    a{
-        color: rgba(33, 37, 41, 0.75) ;
-        text-decoration: none;
-    }
-    a:hover{
-        text-decoration: underline !important;
-    }
+.subTitle {
+  font-size: 12px;
+  color: rgba(33, 37, 41, 0.75);
+  a {
+    color: rgba(33, 37, 41, 0.75);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline !important;
+  }
 }
 
 .gallery {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
 }
-  
+
 .thumbnail img {
-    width: 150px;
-    cursor: pointer;
-    transition: transform 0.2s;
+  width: 150px;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .thumbnail img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
-.btn{
-    width: 30% ;
-    @media (max-width: 500px){
-        width:45% ;
-    }
-}
-
-.nav-item{
-    margin: 0 20px 20px;
-}
-.nav-item:hover{
-    background: none;
+.btn {
+  width: 30%;
+  @media (max-width: 500px) {
+    width: 45%;
+  }
 }
 
-.active{
-    color: #000 !important;
+.nav-item {
+  margin: 0 20px 20px;
+}
+.nav-item:hover {
+  background: none;
 }
 
-tr td{
-    font-size: 14px;
-    color: rgba(33, 37, 41, 0.75);
+.active {
+  color: #000 !important;
 }
-.disc{
-    font-size: 14px;
-    color: rgba(33, 37, 41, 0.75);
+
+tr td {
+  font-size: 14px;
+  color: rgba(33, 37, 41, 0.75);
+}
+.disc {
+  font-size: 14px;
+  color: rgba(33, 37, 41, 0.75);
 }
