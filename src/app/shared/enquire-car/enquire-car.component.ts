@@ -106,9 +106,17 @@ export class EnquireCarComponent implements OnInit {
     { name: '2050' },
   ];
 
-  cars = [{ name: 'Audi' }, { name: 'BMW' }, { name: 'Mercedes' }];
+  cars = [
+    { id: 1, name: 'Audi' },
+    { id: 2, name: 'BMW' },
+    { id: 3, name: 'Mercedes' },
+  ];
 
-  models = [{ name: 'A4' }, { name: 'X5' }, { name: 'C-Class' }];
+  models = [
+    { id: 1, name: 'A4' },
+    { id: 2, name: 'X5' },
+    { id: 3, name: 'C-Class' },
+  ];
 
   constructor(
     private modalService: NgbModal,
@@ -125,14 +133,14 @@ export class EnquireCarComponent implements OnInit {
     console.log(this.carEnquiry);
 
     if (this.carEnquiry) {
-      // this.f.carName.patchValue(this.carEnquiry.name);
+      this.f.carName.patchValue(this.carEnquiry.name);
       this.f.carMake.patchValue(this.carEnquiry.make);
       this.f.carModel.patchValue(this.carEnquiry.model);
       this.f.carYear.patchValue(this.carEnquiry.regYear);
 
-      // this.f.carName.disable();
-      this.f.carMake.disable();
-      this.f.carModel.disable();
+      this.f.carName.disable();
+      // this.f.carMake.disable();
+      // this.f.carModel.disable();
       this.f.carYear.disable();
     }
   }
@@ -158,7 +166,7 @@ export class EnquireCarComponent implements OnInit {
       surName: new FormControl(''),
       contactNumber: new FormControl(''),
       email: new FormControl(''),
-      // carName: new FormControl(''),
+      carName: new FormControl(''),
       carMake: new FormControl(''),
       carModel: new FormControl(''),
       carYear: new FormControl(''),

@@ -14,6 +14,9 @@ export class CarsService {
   getAllCars(): Observable<any> {
     return this.http.get<any>(this.env + 'cars/all');
   }
+  getSoldCars(): Observable<any> {
+    return this.http.get<any>(this.env + 'cars/sold');
+  }
   getCarsByFilter(make: string, model: string, year: number): Observable<any> {
     return this.http.post<any>(this.env + 'cars/filter', { make, model, year });
   }

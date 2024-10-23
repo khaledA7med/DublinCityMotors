@@ -1,6 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { CarsService } from 'src/app/shared/services/pagesServices/cars.service';
 
 @Component({
   selector: 'app-sold',
@@ -22,13 +23,27 @@ import { NgxSpinnerService } from 'ngx-spinner';
   ],
 })
 export class SoldComponent implements OnInit {
-  constructor(private spinner: NgxSpinnerService) {}
-  ngOnInit(): void {
-    this.spinner.show();
+  allCars: any[] = [];
 
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 3000);
+  constructor(
+    private spinner: NgxSpinnerService,
+    private carsService: CarsService
+  ) {}
+  ngOnInit(): void {
+    this.getAllCars();
+  }
+
+  getAllCars() {
+    this.spinner.show();
+    this.carsService.getSoldCars().subscribe({
+      next: (res) => {
+        this.allCars = res;
+        console.log(this.allCars);
+        this.spinner.hide();
+      },
+      error: (err) => {
+        this.spinner.hide();
+      },
+    });
   }
 }
