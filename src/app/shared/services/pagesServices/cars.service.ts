@@ -25,4 +25,8 @@ export class CarsService {
   enquireCar(data: any): Observable<any> {
     return this.http.post<any>(this.env + 'cars/addEnquiry', data);
   }
+
+  getSoldCars(): Observable<any> {
+    return this.http.get<any>(this.env + 'cars/sold');
+  }
 }

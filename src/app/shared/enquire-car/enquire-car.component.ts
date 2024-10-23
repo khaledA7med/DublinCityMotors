@@ -172,13 +172,6 @@ export class EnquireCarComponent implements OnInit {
     return this.formGroup.controls;
   }
 
-  changeTest(e: any) {
-    console.log(e);
-  }
-  changeTest1(e: any) {
-    console.log(e);
-  }
-
   onSubmit(form: FormGroup) {
     this.submitted = true;
     this.spinner.show();
@@ -196,9 +189,5 @@ export class EnquireCarComponent implements OnInit {
         this.messages.popup('error', 'error in Equiry', 'error');
       },
     });
-
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 3000);
   }
 }
