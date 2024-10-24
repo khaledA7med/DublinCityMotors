@@ -106,17 +106,9 @@ export class EnquireCarComponent implements OnInit {
     { name: '2050' },
   ];
 
-  cars = [
-    { id: 1, name: 'Audi' },
-    { id: 2, name: 'BMW' },
-    { id: 3, name: 'Mercedes' },
-  ];
+  makes = [];
 
-  models = [
-    { id: 1, name: 'A4' },
-    { id: 2, name: 'X5' },
-    { id: 3, name: 'C-Class' },
-  ];
+  models = [];
 
   constructor(
     private modalService: NgbModal,
@@ -130,17 +122,15 @@ export class EnquireCarComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
 
-    console.log(this.carEnquiry);
-
     if (this.carEnquiry) {
       this.f.carName.patchValue(this.carEnquiry.name);
-      this.f.carMake.patchValue(this.carEnquiry.make);
-      this.f.carModel.patchValue(this.carEnquiry.model);
+      this.f.carMake.patchValue(this.carEnquiry.makeName);
+      this.f.carModel.patchValue(this.carEnquiry.modelName);
       this.f.carYear.patchValue(this.carEnquiry.regYear);
 
       this.f.carName.disable();
-      // this.f.carMake.disable();
-      // this.f.carModel.disable();
+      this.f.carMake.disable();
+      this.f.carModel.disable();
       this.f.carYear.disable();
     }
   }
@@ -160,19 +150,19 @@ export class EnquireCarComponent implements OnInit {
 
   initForm() {
     this.formGroup = new FormGroup<CarEnquiry>({
-      natureEnquiry: new FormControl('Test Drive'), // Default value
-      contactBy: new FormControl('No Preference'), // Default value
+      natureOfEnquiry: new FormControl('Test Drive'), // Default value
+      contactMeBy: new FormControl('No Preference'), // Default value
       firstName: new FormControl(''),
       surName: new FormControl(''),
       contactNumber: new FormControl(''),
-      email: new FormControl(''),
+      emailAddress: new FormControl(''),
       carName: new FormControl(''),
       carMake: new FormControl(''),
       carModel: new FormControl(''),
-      carYear: new FormControl(''),
+      carYear: new FormControl(),
       pickDate: new FormControl(null),
       pickTime: new FormControl(''),
-      enquiry: new FormControl(''),
+      yourEnquiry: new FormControl(''),
     });
   }
 
@@ -198,6 +188,7 @@ export class EnquireCarComponent implements OnInit {
         console.log(res);
         this.spinner.hide();
         this.messages.toast('Car Enquiry Sent Successfullt', 'success');
+        this.modal.close();
       },
       error: () => {
         this.spinner.hide();

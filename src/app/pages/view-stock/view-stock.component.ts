@@ -110,7 +110,7 @@ export class ViewStockComponent implements OnInit {
       )
       .subscribe({
         next: (res) => {
-          console.log(res);
+          this.allCars = res;
           this.spinner.hide();
         },
       });
@@ -121,7 +121,7 @@ export class ViewStockComponent implements OnInit {
     this.carsService.getAllCars().subscribe({
       next: (res) => {
         this.allCars = res;
-        console.log(this.allCars);
+
         this.spinner.hide();
       },
     });

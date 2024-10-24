@@ -159,7 +159,7 @@
                         <!-- Exterior -->
                         <div class="px-4 py-3 bg-white mb-3">
                             <div class="row justify-content-between" style="cursor: pointer;"
-                                (click)="collapse1.toggle()" [attr.aria-expanded]="!isExteriorCollapsed"
+                                (click)="collapse2.toggle()" [attr.aria-expanded]="!isExteriorCollapsed"
                                 aria-controls="collapseExample">
                                 <h5 class="text-dark fw-bold mb-3 w-50">
                                     Exterior
@@ -168,7 +168,7 @@
                                     [ngClass]="!isExteriorCollapsed ? 'fa-caret-down' :  'fa-caret-up'"
                                     aria-hidden="true"></i>
                             </div>
-                            <div class="row px-3" #collapse1="ngbCollapse" [(ngbCollapse)]="isExteriorCollapsed">
+                            <div class="row px-3" #collapse2="ngbCollapse" [(ngbCollapse)]="isExteriorCollapsed">
                                 <div class="col-md-3 mb-3" *ngFor="let exterior of selectedCar?.exteriors">
                                     <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">
                                         {{exterior}}</span>
@@ -178,7 +178,7 @@
                         <!-- Tech -->
                         <div class="px-4 py-3 bg-white mb-3">
                             <div class="row justify-content-between" style="cursor: pointer;"
-                                (click)="collapse2.toggle()" [attr.aria-expanded]="!isTechCollapsed"
+                                (click)="collapse3.toggle()" [attr.aria-expanded]="!isTechCollapsed"
                                 aria-controls="collapseExample">
                                 <h5 class="text-dark fw-bold mb-3 w-50">
                                     Tech
@@ -187,7 +187,7 @@
                                     [ngClass]="!isTechCollapsed ? 'fa-caret-down' :  'fa-caret-up'"
                                     aria-hidden="true"></i>
                             </div>
-                            <div class="row px-3" #collapse2="ngbCollapse" [(ngbCollapse)]="isTechCollapsed">
+                            <div class="row px-3" #collapse3="ngbCollapse" [(ngbCollapse)]="isTechCollapsed">
                                 <div class="col-md-3 mb-3" *ngFor="let tech of selectedCar?.teches">
                                     <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted"> {{tech}}</span>
                                 </div>
@@ -196,7 +196,7 @@
                         <!-- Safety -->
                         <div class="px-4 py-3 bg-white mb-3">
                             <div class="row justify-content-between" style="cursor: pointer;"
-                                (click)="collapse3.toggle()" [attr.aria-expanded]="!isSafetyCollapsed"
+                                (click)="collapse4.toggle()" [attr.aria-expanded]="!isSafetyCollapsed"
                                 aria-controls="collapseExample">
                                 <h5 class="text-dark fw-bold mb-3 w-50">
                                     Safety
@@ -205,7 +205,7 @@
                                     [ngClass]="!isSafetyCollapsed ? 'fa-caret-down' :  'fa-caret-up'"
                                     aria-hidden="true"></i>
                             </div>
-                            <div class="row px-3" #collapse3="ngbCollapse" [(ngbCollapse)]="isSafetyCollapsed">
+                            <div class="row px-3" #collapse4="ngbCollapse" [(ngbCollapse)]="isSafetyCollapsed">
                                 <div class="col-md-3 mb-3" *ngFor="let safty of selectedCar?.safeties">
                                     <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted"> {{safty}}</span>
                                 </div>

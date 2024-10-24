@@ -1,17 +1,17 @@
 import { FormControl } from '@angular/forms';
 
 export interface CarEnquiry {
-  natureEnquiry: FormControl<string | null>;
-  contactBy: FormControl<string | null>;
+  natureOfEnquiry: FormControl<string | null>;
+  contactMeBy: FormControl<string | null>;
   firstName: FormControl<string | null>;
   surName: FormControl<string | null>;
   contactNumber: FormControl<string | null>;
-  email: FormControl<string | null>;
+  emailAddress: FormControl<string | null>;
   carName: FormControl<string | null>;
   carMake: FormControl<string | null>;
   carModel: FormControl<string | null>;
-  carYear: FormControl<string | null>;
+  carYear: FormControl<number | null>;
   pickDate: FormControl<Date | null>;
   pickTime: FormControl<string | null>;
-  enquiry: FormControl<string | null>;
+  yourEnquiry: FormControl<string | null>;
 }

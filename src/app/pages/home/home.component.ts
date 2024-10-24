@@ -16,6 +16,7 @@ import {
 } from '@angular/animations';
 import { FilterService } from 'src/app/shared/services/filter.service';
 import { Router } from '@angular/router';
+import { CarsService } from 'src/app/shared/services/pagesServices/cars.service';
 
 @Component({
   selector: 'app-home',
@@ -66,21 +67,35 @@ export class HomeComponent implements OnInit {
     '../../../assets/images/shiny-hot-red-jaguar-car-6ato97yhe2zlhqi4.jpg',
   ];
 
-  cars = [{ name: 'Audi' }, { name: 'BMW' }, { name: 'Mercedes' }];
-  models = [{ name: 'A4' }, { name: 'X5' }, { name: 'C-Class' }];
+  makes = [];
+  models = [];
   years = [{ name: '2020' }, { name: '2021' }, { name: '2022' }];
 
   constructor(
     private spinner: NgxSpinnerService,
     private router: Router,
-    private filterService: FilterService
+    private filterService: FilterService,
+    private carsService: CarsService
   ) {}
 
   ngOnInit(): void {
-    this.spinner.show();
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 3000);
+    this.getMake()
+    // this.spinner.show();
+    // setTimeout(() => {
+    //   this.spinner.hide();
+    // }, 3000);
+  }
+
+  getMake() {
+    this.carsService.getCarMake().subscribe((res) => {
+      this.makes = res;
+    });
+  }
+
+  getModel(id: number) {
+    this.carsService.getCarModel(id).subscribe((res) => {
+      this.models = res;
+    });
   }
 
   @HostListener('window:scroll', [])

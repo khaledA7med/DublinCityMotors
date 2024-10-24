@@ -16,16 +16,19 @@
                     <label class="mb-1">Nature of Enquiry</label>
                     <div class="btn-group w-100" role="group" aria-label="Nature of Enquiry">
                         <label class="btn btn-sm"
-                            [class.active]="formGroup.get('natureEnquiry')?.value === 'Test Drive'">
-                            <input type="radio" class="btn-check" formControlName="natureEnquiry" value="Test Drive" />
+                            [class.active]="formGroup.get('natureOfEnquiry')?.value === 'Test Drive'">
+                            <input type="radio" class="btn-check" formControlName="natureOfEnquiry"
+                                value="Test Drive" />
                             Test Drive
                         </label>
-                        <label class="btn btn-sm" [class.active]="formGroup.get('natureEnquiry')?.value === 'General'">
-                            <input type="radio" class="btn-check" formControlName="natureEnquiry" value="General" />
+                        <label class="btn btn-sm"
+                            [class.active]="formGroup.get('natureOfEnquiry')?.value === 'General'">
+                            <input type="radio" class="btn-check" formControlName="natureOfEnquiry" value="General" />
                             General
                         </label>
-                        <label class="btn btn-sm" [class.active]="formGroup.get('natureEnquiry')?.value === 'Trade-in'">
-                            <input type="radio" class="btn-check" formControlName="natureEnquiry" value="Trade-in" />
+                        <label class="btn btn-sm"
+                            [class.active]="formGroup.get('natureOfEnquiry')?.value === 'Trade-in'">
+                            <input type="radio" class="btn-check" formControlName="natureOfEnquiry" value="Trade-in" />
                             Trade-in
                         </label>
                     </div>
@@ -37,15 +40,15 @@
                     <label class="mb-1">Contact By</label>
                     <div class="btn-group w-100" role="group" aria-label="Contact Method">
                         <label class="btn btn-sm"
-                            [class.active]="formGroup.get('contactBy')?.value === 'No Preference'">
-                            <input type="radio" class="btn-check" formControlName="contactBy" value="No Preference" />
+                            [class.active]="formGroup.get('contactMeBy')?.value === 'No Preference'">
+                            <input type="radio" class="btn-check" formControlName="contactMeBy" value="No Preference" />
                             No Preference
                         </label>
-                        <label class="btn btn-sm" [class.active]="formGroup.get('contactBy')?.value === 'Email'">
-                            <input type="radio" class="btn-check" formControlName="contactBy" value="Email" /> Email
+                        <label class="btn btn-sm" [class.active]="formGroup.get('contactMeBy')?.value === 'Email'">
+                            <input type="radio" class="btn-check" formControlName="contactMeBy" value="Email" /> Email
                         </label>
-                        <label class="btn btn-sm" [class.active]="formGroup.get('contactBy')?.value === 'Telephone'">
-                            <input type="radio" class="btn-check" formControlName="contactBy" value="Telephone" />
+                        <label class="btn btn-sm" [class.active]="formGroup.get('contactMeBy')?.value === 'Telephone'">
+                            <input type="radio" class="btn-check" formControlName="contactMeBy" value="Telephone" />
                             Telephone
                         </label>
                     </div>
@@ -63,11 +66,12 @@
             <div class="col-lg-6 col-md-6 col-sm-12 my-2">
                 <label for="">Contact Number</label>
                 <input class="form-control" formControlName="contactNumber" placeholder="Your contact number"
-                    type="number">
+                    type="text">
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 my-2">
                 <label for="">Enail Address</label>
-                <input class="form-control" formControlName="email" placeholder="Your email address" type="email">
+                <input class="form-control" formControlName="emailAddress" placeholder="Your email address"
+                    type="email">
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 my-2">
                 <label for="">Car Name</label>
@@ -75,7 +79,7 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 my-2">
                 <label for="">Car Make</label>
-                <ng-select [items]="cars" placeholder="Select Make" formControlName="carMake" [searchable]="true"
+                <ng-select [items]="makes" placeholder="Select Make" formControlName="carMake" [searchable]="true"
                     bindLabel="name" bindValue="name" id="Make"></ng-select>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 my-2">
@@ -85,8 +89,9 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 my-2">
                 <label for="">Car Year</label>
-                <ng-select [items]="years" placeholder="Select Year" formControlName="carYear" [searchable]="true"
-                    bindLabel="name" bindValue="name" id="Year"></ng-select>
+                <!-- <ng-select [items]="years" placeholder="Select Year" formControlName="carYear" [searchable]="true"
+                    bindLabel="name" bindValue="name" id="Year"></ng-select> -->
+                <input class="form-control" formControlName="carYear" placeholder="Car Year" type="number">
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 my-2"></div>
             <div class="col-12 text-center fw-bold">
@@ -104,7 +109,7 @@
             </div>
             <div class="col-12 my-2">
                 <label for="">Your Enquiry</label>
-                <textarea class="form-control" formControlName="enquiry" placeholder="Your enquiry"
+                <textarea class="form-control" formControlName="yourEnquiry" placeholder="Your enquiry"
                     type="text"></textarea>
             </div>
         </div>

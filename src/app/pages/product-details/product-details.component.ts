@@ -6,6 +6,7 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
 import { CarsService } from 'src/app/shared/services/pagesServices/cars.service';
+import { MessagesService } from 'src/app/shared/services/messages.service';
 
 @Component({
   selector: 'app-product-details',
@@ -40,7 +41,8 @@ export class ProductDetailsComponent implements OnInit {
     private modalService: NgbModal,
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
-    private carsService: CarsService
+    private carsService: CarsService,
+    private messages: MessagesService
   ) {}
 
   ngOnInit(): void {
@@ -74,6 +76,10 @@ export class ProductDetailsComponent implements OnInit {
           this.selectedCar = res;
           this.spinner.hide();
         }
+      },
+      error: (err) => {
+        this.messages.toast('Failed To load data', 'error');
+        this.spinner.hide();
       },
     });
   }
