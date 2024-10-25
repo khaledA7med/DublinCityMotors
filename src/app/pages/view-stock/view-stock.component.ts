@@ -2,6 +2,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import {
   Component,
   ElementRef,
+  OnDestroy,
   OnInit,
   ViewChild,
   ViewEncapsulation,
@@ -9,6 +10,7 @@ import {
 import { FormControl, FormGroup } from '@angular/forms';
 import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Subscription } from 'rxjs';
 import { Filter } from 'src/app/shared/models/carFillter';
 import { FilterService } from 'src/app/shared/services/filter.service';
 import { CarsService } from 'src/app/shared/services/pagesServices/cars.service';
@@ -33,7 +35,8 @@ import { CarsService } from 'src/app/shared/services/pagesServices/cars.service'
     ]),
   ],
 })
-export class ViewStockComponent implements OnInit {
+export class ViewStockComponent implements OnInit, OnDestroy {
+  subscription: Subscription[] = [];
   filteredStock!: any[];
 
   allCars: any[] = [];
@@ -118,12 +121,17 @@ export class ViewStockComponent implements OnInit {
 
   getAllCars() {
     this.spinner.show();
-    this.carsService.getAllCars().subscribe({
+    let sub = this.carsService.getAllCars().subscribe({
       next: (res) => {
         this.allCars = res;
 
         this.spinner.hide();
       },
     });
+    this.subscription.push(sub);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription && this.subscription.forEach((s) => s.unsubscribe());
   }
 }

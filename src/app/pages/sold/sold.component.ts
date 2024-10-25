@@ -1,6 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Subscription } from 'rxjs';
 import { CarsService } from 'src/app/shared/services/pagesServices/cars.service';
 
 @Component({
@@ -22,20 +23,22 @@ import { CarsService } from 'src/app/shared/services/pagesServices/cars.service'
     ]),
   ],
 })
-export class SoldComponent implements OnInit {
+export class SoldComponent implements OnInit, OnDestroy {
+  subscription: Subscription[] = [];
   allCars: any[] = [];
 
   constructor(
     private spinner: NgxSpinnerService,
     private carsService: CarsService
   ) {}
+
   ngOnInit(): void {
     this.getAllCars();
   }
 
   getAllCars() {
     this.spinner.show();
-    this.carsService.getSoldCars().subscribe({
+    let sub = this.carsService.getSoldCars().subscribe({
       next: (res) => {
         this.allCars = res;
         console.log(this.allCars);
@@ -45,5 +48,9 @@ export class SoldComponent implements OnInit {
         this.spinner.hide();
       },
     });
+    this.subscription.push(sub);
+  }
+  ngOnDestroy(): void {
+    this.subscription && this.subscription.forEach((s) => s.unsubscribe());
   }
 }

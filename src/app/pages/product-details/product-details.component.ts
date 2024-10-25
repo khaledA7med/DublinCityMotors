@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { EnquireCarComponent } from 'src/app/shared/enquire-car/enquire-car.component';
@@ -7,6 +7,7 @@ import { trigger, style, animate, transition } from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
 import { CarsService } from 'src/app/shared/services/pagesServices/cars.service';
 import { MessagesService } from 'src/app/shared/services/messages.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-details',
@@ -27,8 +28,13 @@ import { MessagesService } from 'src/app/shared/services/messages.service';
     ]),
   ],
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnDestroy {
+  subscription: Subscription[] = [];
   car_id!: any;
+
+  showNavigationArrows = true;
+  showNavigationIndicators = true;
+
   public album: Array<any> = [];
   modalRef!: NgbModalRef;
   selectedCar: any;
@@ -70,7 +76,7 @@ export class ProductDetailsComponent implements OnInit {
       car_id: id,
     };
 
-    this.carsService.getCarById(data).subscribe({
+    let sub = this.carsService.getCarById(data).subscribe({
       next: (res) => {
         if (res) {
           this.selectedCar = res;
@@ -82,5 +88,11 @@ export class ProductDetailsComponent implements OnInit {
         this.spinner.hide();
       },
     });
+
+    this.subscription.push(sub);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription && this.subscription.forEach((s) => s.unsubscribe());
   }
 }

@@ -30,6 +30,11 @@
     </div>
 
     <div class="mb-4" [@scaleIn]>
+        <div class="row" *ngIf="allCars.length === 0">
+            <div class="col-12 bg-body-secondary p-3">
+                <h3 class="text-center">No Cars To Show</h3>
+            </div>
+        </div>
         <app-car-card [allCars]="allCars"></app-car-card>
     </div>
 

@@ -16,11 +16,14 @@
     <div class="row mb-5" [@scaleIn]>
         <div class="col-md-6">
             <!-- <div class="gallery"> -->
-            <!-- <div *ngFor="let image of album; let i = index" class="thumbnail"> -->
-            <!-- <img [src]="selectedCar?.image" (click)="open(i)" alt="{{ image.caption }}" /> -->
-            <img [src]="selectedCar?.image" width="100%" />
-            <!-- </div> -->
-            <!-- </div> -->
+            <ngb-carousel *ngIf="selectedCar?.images" [showNavigationArrows]="showNavigationArrows" [interval]="2000"
+                [pauseOnHover]="false" [showNavigationIndicators]="showNavigationIndicators">
+                <ng-template ngbSlide *ngFor="let image of selectedCar?.images">
+                    <div class="picsum-img-wrapper">
+                        <img [src]="image" alt="Random slide" class="carousel-img w-100" />
+                    </div>
+                </ng-template>
+            </ngb-carousel>
         </div>
 
         <div class="col-md-6">

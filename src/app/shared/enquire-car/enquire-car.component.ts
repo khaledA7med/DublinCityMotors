@@ -11,6 +11,7 @@ import { CarEnquiry } from '../models/carEquiry';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { CarsService } from '../services/pagesServices/cars.service';
 import { MessagesService } from '../services/messages.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-enquire-car',
@@ -21,6 +22,8 @@ import { MessagesService } from '../services/messages.service';
 export class EnquireCarComponent implements OnInit {
   selectedEnquiry: string = 'Test Drive'; // Default selection
   selectedContact: string = 'No Preference'; // Default selection
+
+  subscription: Subscription[] = [];
 
   @Input() carEnquiry: any;
 
@@ -149,6 +152,7 @@ export class EnquireCarComponent implements OnInit {
   }
 
   initForm() {
+    this.getMake();
     this.formGroup = new FormGroup<CarEnquiry>({
       natureOfEnquiry: new FormControl('Test Drive'), // Default value
       contactMeBy: new FormControl('No Preference'), // Default value
@@ -170,11 +174,17 @@ export class EnquireCarComponent implements OnInit {
     return this.formGroup.controls;
   }
 
-  changeTest(e: any) {
-    console.log(e);
+  getMake() {
+    let sub = this.carsService.getCarMake().subscribe((res) => {
+      this.makes = res;
+    });
+    this.subscription.push(sub);
   }
-  changeTest1(e: any) {
-    console.log(e);
+  getModel(id: number) {
+    let sub = this.carsService.getCarModel(id).subscribe((res) => {
+      this.models = res;
+    });
+    this.subscription.push(sub);
   }
 
   onSubmit(form: FormGroup) {
@@ -183,12 +193,17 @@ export class EnquireCarComponent implements OnInit {
 
     let data = form.getRawValue();
 
-    this.carsService.enquireCar(data).subscribe({
+    let sub = this.carsService.enquireCar(data).subscribe({
       next: (res) => {
-        console.log(res);
-        this.spinner.hide();
-        this.messages.toast('Car Enquiry Sent Successfullt', 'success');
-        this.modal.close();
+        if (res.status === true) {
+          this.spinner.hide();
+          this.messages.toast('Car Enquiry Sent Successfullt', 'success');
+          this.submitted = false;
+          this.modal.close();
+        } else {
+          this.spinner.hide();
+          this.messages.popup('error', 'error in Equiry', 'error');
+        }
       },
       error: () => {
         this.spinner.hide();
@@ -196,8 +211,10 @@ export class EnquireCarComponent implements OnInit {
       },
     });
 
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 3000);
+    this.subscription.push(sub);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription && this.subscription.forEach((s) => s.unsubscribe());
   }
 }

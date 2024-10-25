@@ -28,7 +28,7 @@ export default class AppUtils {
     let date = '';
     if (dt) {
       //   date = new Date(`${dt.year}/${dt.month}/${dt.day}`).toLocaleDateString();
-      date = `${dt.year}/${dt.month}/${dt.day}`.toString();
+      date = `${dt.year}-${dt.month}-${dt.day}`.toString();
     }
     return date;
   }

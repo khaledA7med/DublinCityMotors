@@ -80,7 +80,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 my-2">
                 <label for="">Car Make</label>
                 <ng-select [items]="makes" placeholder="Select Make" formControlName="carMake" [searchable]="true"
-                    bindLabel="name" bindValue="name" id="Make"></ng-select>
+                    bindLabel="name" bindValue="name" id="Make" (change)="getModel($event?.id)"></ng-select>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 my-2">
                 <label for="">Car Model</label>
