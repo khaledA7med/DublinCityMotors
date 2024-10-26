@@ -195,7 +195,7 @@ export class EnquireCarComponent implements OnInit {
 
     let sub = this.carsService.enquireCar(data).subscribe({
       next: (res) => {
-        if (res.status === true) {
+        if (res.success === true) {
           this.spinner.hide();
           this.messages.toast('Car Enquiry Sent Successfullt', 'success');
           this.submitted = false;

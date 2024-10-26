@@ -16,9 +16,10 @@
     <div class="row mb-5" [@scaleIn]>
         <div class="col-md-6">
             <!-- <div class="gallery"> -->
-            <ngb-carousel *ngIf="selectedCar?.images" [showNavigationArrows]="showNavigationArrows" [interval]="2000"
-                [pauseOnHover]="false" [showNavigationIndicators]="showNavigationIndicators">
-                <ng-template ngbSlide *ngFor="let image of selectedCar?.images">
+            <ngb-carousel *ngIf="selectedCar?.images" [showNavigationArrows]="showNavigationArrows" [interval]="0"
+                [pauseOnHover]="true" [showNavigationIndicators]="showNavigationIndicators">
+                <!-- <ng-template ngbSlide *ngFor="let image of selectedCar?.images"> -->
+                <ng-template ngbSlide *ngFor="let image of images">
                     <div class="picsum-img-wrapper">
                         <img [src]="image" alt="Random slide" class="carousel-img w-100" />
                     </div>
@@ -88,11 +89,11 @@
                                     <tbody>
                                         <tr>
                                             <td class="fw-bold">Make</td>
-                                            <td>{{selectedCar.make}}</td>
+                                            <td>{{selectedCar.makeName}}</td>
                                         </tr>
                                         <tr>
                                             <td class="fw-bold">Model</td>
-                                            <td>{{selectedCar.model}}</td>
+                                            <td>{{selectedCar.modelName}}</td>
                                         </tr>
                                         <tr>
                                             <td class="fw-bold">Reg Year </td>

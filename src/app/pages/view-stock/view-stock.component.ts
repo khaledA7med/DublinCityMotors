@@ -51,11 +51,17 @@ export class ViewStockComponent implements OnInit, OnDestroy {
     { name: 'Sort by Age: Newest First' },
   ];
 
-  cars = [{ name: 'Audi' }, { name: 'BMW' }, { name: 'Mercedes' }];
+  makes = [];
 
-  models = [{ name: 'A4' }, { name: 'X5' }, { name: 'C-Class' }];
+  models = [];
 
-  years = [{ name: '2020' }, { name: '2021' }, { name: '2022' }];
+  years = [
+    { name: '2020' },
+    { name: '2021' },
+    { name: '2022' },
+    { name: '2023' },
+    { name: '2024' },
+  ];
 
   selectedSort = this.Sort[0].name;
   constructor(
@@ -67,10 +73,9 @@ export class ViewStockComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initFilterForm();
+    this.getMake();
 
     const filterData = this.filterService.getFilterData();
-    console.log(filterData);
-
     if (filterData.length !== 0) {
       this.filterForm.patchValue({
         make: filterData[0],
@@ -117,6 +122,18 @@ export class ViewStockComponent implements OnInit, OnDestroy {
           this.spinner.hide();
         },
       });
+  }
+
+  getMake() {
+    this.carsService.getCarMake().subscribe((res) => {
+      this.makes = res;
+    });
+  }
+
+  getModel(id: number) {
+    this.carsService.getCarModel(id).subscribe((res) => {
+      this.models = res;
+    });
   }
 
   getAllCars() {

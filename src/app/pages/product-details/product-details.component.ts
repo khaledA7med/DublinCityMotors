@@ -32,6 +32,21 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   subscription: Subscription[] = [];
   car_id!: any;
 
+  images = [
+    '../../../assets/images/stock/1.jpg',
+    '../../../assets/images/stock/2.jpg',
+    '../../../assets/images/stock/3.jpg',
+    '../../../assets/images/stock/4.jpg',
+    '../../../assets/images/stock/1.jpg',
+    '../../../assets/images/stock/2.jpg',
+    '../../../assets/images/stock/3.jpg',
+    '../../../assets/images/stock/4.jpg',
+    '../../../assets/images/stock/1.jpg',
+    '../../../assets/images/stock/2.jpg',
+    '../../../assets/images/stock/3.jpg',
+    '../../../assets/images/stock/4.jpg',
+  ];
+
   showNavigationArrows = true;
   showNavigationIndicators = true;
 

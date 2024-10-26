@@ -12,6 +12,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class CarCardComponent implements OnInit {
   @Input() allCars: any[] = [];
 
+  images = [
+    '../../../assets/images/stock/1.jpg',
+    '../../../assets/images/stock/2.jpg',
+    '../../../assets/images/stock/3.jpg',
+  ];
+
   constructor(
     private sharedService: SharedService,
     private router: Router,

@@ -69,7 +69,13 @@ export class HomeComponent implements OnInit {
 
   makes = [];
   models = [];
-  years = [{ name: '2020' }, { name: '2021' }, { name: '2022' }];
+  years = [
+    { name: '2020' },
+    { name: '2021' },
+    { name: '2022' },
+    { name: '2023' },
+    { name: '2024' },
+  ];
 
   constructor(
     private spinner: NgxSpinnerService,
@@ -79,7 +85,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getMake()
+    this.getMake();
     // this.spinner.show();
     // setTimeout(() => {
     //   this.spinner.hide();
