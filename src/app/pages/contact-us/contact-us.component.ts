@@ -2,7 +2,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { EnquireCarComponent } from 'src/app/shared/enquire-car/enquire-car.component';
+import { EnquireCarComponent } from 'src/app/shared/Components/enquire-car/enquire-car.component';
 
 @Component({
   selector: 'app-contact-us',

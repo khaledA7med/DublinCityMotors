@@ -6,11 +6,11 @@ import {
   NgbDateStruct,
   NgbModal,
 } from '@ng-bootstrap/ng-bootstrap';
-import AppUtils from '../models/util';
-import { CarEnquiry } from '../models/carEquiry';
+import AppUtils from '../../models/util';
+import { CarEnquiry } from '../../models/carEquiry';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { CarsService } from '../services/pagesServices/cars.service';
-import { MessagesService } from '../services/messages.service';
+import { CarsService } from '../../services/pagesServices/cars.service';
+import { MessagesService } from '../../services/messages.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -22,6 +22,7 @@ import { Subscription } from 'rxjs';
 export class EnquireCarComponent implements OnInit {
   selectedEnquiry: string = 'Test Drive'; // Default selection
   selectedContact: string = 'No Preference'; // Default selection
+  selectedValue!: string;
 
   subscription: Subscription[] = [];
 
@@ -138,8 +139,16 @@ export class EnquireCarComponent implements OnInit {
     }
   }
 
-  setDate(e: any) {
+  setPickDate(e: any) {
     this.f.pickDate?.patchValue(this.appUtils.dateFormater(e.gon) as any);
+  }
+  setNCTDate(e: any) {
+    this.f.nctExpiryDate?.patchValue(this.appUtils.dateFormater(e.gon) as any);
+  }
+  setTaxDate(e: any) {
+    this.f.roadTaxExpiryDate?.patchValue(
+      this.appUtils.dateFormater(e.gon) as any
+    );
   }
 
   selectToday() {
@@ -167,6 +176,13 @@ export class EnquireCarComponent implements OnInit {
       pickDate: new FormControl(null),
       pickTime: new FormControl(''),
       yourEnquiry: new FormControl(''),
+      tradeInDetails: new FormControl(''),
+      carRegNo: new FormControl(),
+      currentMileage: new FormControl(),
+      nctExpiryDate: new FormControl(null),
+      roadTaxExpiryDate: new FormControl(null),
+      condition: new FormControl(''),
+      priceExpectation: new FormControl(),
     });
   }
 
@@ -174,6 +190,9 @@ export class EnquireCarComponent implements OnInit {
     return this.formGroup.controls;
   }
 
+  getValue(e: any) {
+    this.selectedValue = e.target.value;
+  }
   getMake() {
     let sub = this.carsService.getCarMake().subscribe((res) => {
       this.makes = res;

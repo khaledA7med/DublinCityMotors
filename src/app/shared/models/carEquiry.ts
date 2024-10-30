@@ -14,4 +14,11 @@ export interface CarEnquiry {
   pickDate: FormControl<Date | null>;
   pickTime: FormControl<string | null>;
   yourEnquiry: FormControl<string | null>;
+  tradeInDetails: FormControl<string | null>;
+  carRegNo: FormControl<number | null>;
+  currentMileage: FormControl<number | null>;
+  nctExpiryDate: FormControl<Date | null>;
+  roadTaxExpiryDate: FormControl<string | null>;
+  condition: FormControl<string | null>;
+  priceExpectation: FormControl<number | null>;
 }

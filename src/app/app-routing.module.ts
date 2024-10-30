@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './extra-pages/not-found/not-found.component';
+import { TermsConditionsComponent } from './shared/Components/terms-conditions/terms-conditions.component';
 
 const routes: Routes = [
   {
@@ -20,10 +22,11 @@ const routes: Routes = [
     redirectTo: '/',
     pathMatch: 'full',
   },
-  // {
-  //   path: "**",
-  //   component: NotFoundComponent,
-  // },
+  { path: 'terms-and-conditions', component: TermsConditionsComponent },
+  {
+    path: '**',
+    component: NotFoundComponent,
+  },
 ];
 
 @NgModule({

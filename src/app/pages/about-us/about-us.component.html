@@ -1,23 +1,20 @@
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-beat" [fullScreen]="true">
-    <p style="color: white"> Loading... </p>
+    <p style="color: white">Loading...</p>
 </ngx-spinner>
-<div class="container mt-5" [@scaleIn]>
+
+<div class="container about-us-container my-5" [@scaleIn]>
     <!-- Header Section -->
-    <header class="text-center mb-5" [@scaleIn]>
+    <header class="header-section text-center mb-5" [@scaleIn]>
         <h1 class="display-4 fw-bold">About Us</h1>
-        <p class="lead text-muted">Welcome to Dublin City Motors – Where Style Meets Precision in the World of High-Spec
-            German Cars</p>
-        <hr />
+        <p class="lead">Dublin City Motors – Where Style Meets Precision in German High-Spec Cars</p>
+        <div class="divider"></div>
     </header>
 
-    <div class="container Content" [@scaleIn]>
+    <div class="container about-content" [@scaleIn]>
         <div class="row">
-            <!-- <div class="section-title text-center col-12">
-                <h3>Dublin City Motors</h3>
-            </div> -->
-
-            <div class="col-lg-6 col-md-12 d-flex align-items-center">
-                <p class="text-muted">
+            <!-- Text Section -->
+            <div class="col-lg-6 col-md-12 about-text">
+                <p>
                     At DCM, we trust in German engineering. Our passion for these elegantly powerful machines goes back
                     more than 30 years. What started as a fascination became a full-time profession – buying and selling
                     the favourite cars of automotive enthusiasts worldwide. <br><br>
@@ -39,61 +36,55 @@
                 </p>
             </div>
 
-            <div class="col-lg-6 col-md-12">
-                <div id="con" class="d-flex justify-content-center my-1">
-                    <img src="../../../assets/images/jaguar-car-0h4vhh2g85m0elx1.jpg" alt="Dublin City Motors"
-                        id="image" class="img-fluid">
+            <!-- Image Gallery -->
+            <div class="col-lg-6 col-md-12 about-images">
+                <div class="image-wrapper">
+                    <img src="../../../assets//images/jaguar-car-0h4vhh2g85m0elx1.jpg" alt="Dublin City Motors"
+                        class="gallery-img">
                 </div>
-                <div id="con" class="d-flex justify-content-center my-1">
-                    <img src="../../../assets/images/jaguar-car-0h4vhh2g85m0elx1.jpg" alt="Dublin City Motors"
-                        id="image" class="img-fluid">
+                <div class="image-wrapper">
+                    <img src="../../../assets//images/jaguar-car-0h4vhh2g85m0elx1.jpg" alt="Dublin City Motors"
+                        class="gallery-img">
                 </div>
-                <div id="con" class="d-flex justify-content-center my-1">
-                    <img src="../../../assets/images/jaguar-car-0h4vhh2g85m0elx1.jpg" alt="Dublin City Motors"
-                        id="image" class="img-fluid">
+                <div class="image-wrapper">
+                    <img src="../../../assets//images/jaguar-car-0h4vhh2g85m0elx1.jpg" alt="Dublin City Motors"
+                        class="gallery-img">
                 </div>
             </div>
         </div>
 
-        <hr>
+        <div class="mission-section mt-5">
+            <h3 class="section-title">Our Mission</h3>
+            <p>
+                Our mission is simple yet powerful – to ensure our customers’ utmost satisfaction and foster lasting
+                relationships with them. We take immense pride in being at the forefront of our industry, operating
+                on remarkably low margins without ever compromising on quality or service.<br><br>
 
-        <div class="row mt-5">
-            <div class="col-12">
-                <div class="section-title text-center">
-                    <h3>Our Mission</h3>
-                </div>
-                <p class="text-muted">
-                    Our mission is simple yet powerful – to ensure our customers’ utmost satisfaction and foster lasting
-                    relationships with them. We take immense pride in being at the forefront of our industry, operating
-                    on remarkably low margins without ever compromising on quality or service.<br><br>
+                Our relationship doesn’t cease at the point of sale. At DCM, we firmly believe in cultivating
+                enduring connections. When the time comes to select your next model, rest assured that we will be
+                here to welcome you back with open arms. We are happy to take quality trade-ins, committed to
+                offering you a remarkably fair price for your car – ensuring a smooth and rewarding upgrade
+                journey.<br><br>
 
-                    Our relationship doesn’t cease at the point of sale. At DCM, we firmly believe in cultivating
-                    enduring connections. When the time comes to select your next model, rest assured that we will be
-                    here to welcome you back with open arms. We are happy to take quality trade-ins, committed to
-                    offering you a remarkably fair price for your car – ensuring a smooth and rewarding upgrade
-                    journey.<br><br>
+                Trust is not bestowed but earned. We believe that your experience will give you the confidence to
+                come back time and time again.<br><br>
 
-                    Trust is not bestowed but earned. We believe that your experience will give you the confidence to
-                    come back time and time again.<br><br>
-                </p>
-            </div>
-
-            <!-- Call to Action Button -->
-            <div
-                class="col-12 text-center mt-5 d-flex justify-content-center align-items-baseline flex-column flex-sm-row">
-                <span class="fs-5 me-2 ">Go to our stocks from here <i class='bx bx-right-arrow-alt fs-5'></i></span>
-                <button class="btn btn-secondary mt-3 mt-sm-0" type="button" routerLink="/view-stock">View
-                    Stock</button>
-            </div>
+            </p>
         </div>
-        <hr>
 
-        <div class="row mt-5">
-            <div class="col-md-12">
-                <div class="section-title text-center">
-                    <h3>Our Customers Review</h3>
-                </div>
-            </div>
+        <!-- Call to Action -->
+        <div class="text-center mt-5 action-btn">
+            <span class="go-to-text">Explore Our Stock</span>
+            <button class="btn btn-primary" routerLink="/view-stock">View Stock</button>
+        </div>
+
+        <!-- Customer Reviews Section -->
+        <div class="reviews-section mt-5">
+            <h3 class="section-title">Customer Reviews</h3>
+            <p>
+                We are grateful to our clients for their continued trust. Their feedback inspires us to keep delivering
+                excellence.
+            </p>
         </div>
     </div>
 </div>

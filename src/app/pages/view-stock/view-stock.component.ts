@@ -56,11 +56,67 @@ export class ViewStockComponent implements OnInit, OnDestroy {
   models = [];
 
   years = [
+    { name: '1990' },
+    { name: '1991' },
+    { name: '1992' },
+    { name: '1993' },
+    { name: '1994' },
+    { name: '1995' },
+    { name: '1996' },
+    { name: '1997' },
+    { name: '1998' },
+    { name: '1999' },
+    { name: '2000' },
+    { name: '2001' },
+    { name: '2002' },
+    { name: '2003' },
+    { name: '2004' },
+    { name: '2005' },
+    { name: '2006' },
+    { name: '2007' },
+    { name: '2008' },
+    { name: '2009' },
+    { name: '2010' },
+    { name: '2011' },
+    { name: '2012' },
+    { name: '2013' },
+    { name: '2014' },
+    { name: '2015' },
+    { name: '2016' },
+    { name: '2017' },
+    { name: '2018' },
+    { name: '2019' },
     { name: '2020' },
     { name: '2021' },
     { name: '2022' },
     { name: '2023' },
     { name: '2024' },
+    { name: '2025' },
+    { name: '2026' },
+    { name: '2027' },
+    { name: '2028' },
+    { name: '2029' },
+    { name: '2030' },
+    { name: '2031' },
+    { name: '2032' },
+    { name: '2033' },
+    { name: '2034' },
+    { name: '2035' },
+    { name: '2036' },
+    { name: '2037' },
+    { name: '2038' },
+    { name: '2039' },
+    { name: '2040' },
+    { name: '2041' },
+    { name: '2042' },
+    { name: '2043' },
+    { name: '2044' },
+    { name: '2045' },
+    { name: '2046' },
+    { name: '2047' },
+    { name: '2048' },
+    { name: '2049' },
+    { name: '2050' },
   ];
 
   selectedSort = this.Sort[0].name;
@@ -91,8 +147,8 @@ export class ViewStockComponent implements OnInit, OnDestroy {
 
   initFilterForm(): void {
     this.filterForm = new FormGroup<Filter>({
-      make: new FormControl(''),
-      model: new FormControl(''),
+      make: new FormControl(null),
+      model: new FormControl(null),
       regYear: new FormControl(null),
     });
   }
@@ -101,11 +157,54 @@ export class ViewStockComponent implements OnInit, OnDestroy {
     return this.filterForm.controls;
   }
 
+  currentPage = 1;
+  carsPerPage = 12;
+  paginatedCars: any[] = [];
+
+  get totalPages(): number {
+    return Math.ceil(this.allCars.length / this.carsPerPage);
+  }
+
+  paginateCars() {
+    const start = (this.currentPage - 1) * this.carsPerPage;
+    const end = start + this.carsPerPage;
+    this.paginatedCars = this.allCars.slice(start, end);
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.paginateCars();
+    }
+  }
+
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.paginateCars();
+    }
+  }
+
   openFilter() {
     this.offcanvasService.open(this.content, { position: 'start' });
   }
   onSortChange() {
-    console.log(this.selectedSort);
+    switch (this.selectedSort) {
+      case 'Sort by price: Low To High':
+        this.allCars.sort((a: any, b: any) => a.price - b.price);
+        break;
+      case 'Sort by price: High To Low':
+        this.allCars.sort((a: any, b: any) => b.price - a.price);
+        break;
+      case 'Sort by Age: Oldest First':
+        this.allCars.sort((a: any, b: any) => a.age - b.age);
+        break;
+      case 'Sort by Age: Newest First':
+        this.allCars.sort((a: any, b: any) => b.age - a.age);
+        break;
+    }
+    this.currentPage = 1; // Reset to first page after sorting
+    this.paginateCars();
   }
 
   onFilter() {
@@ -122,6 +221,8 @@ export class ViewStockComponent implements OnInit, OnDestroy {
           this.spinner.hide();
         },
       });
+    this.currentPage = 1; // Reset to first page after sorting
+    this.paginateCars();
   }
 
   getMake() {
@@ -141,7 +242,7 @@ export class ViewStockComponent implements OnInit, OnDestroy {
     let sub = this.carsService.getAllCars().subscribe({
       next: (res) => {
         this.allCars = res;
-
+        this.paginateCars();
         this.spinner.hide();
       },
     });

@@ -16,6 +16,17 @@
                 <h3 class="text-center">No Cars To Show</h3>
             </div>
         </div>
-        <app-car-card [allCars]="allCars"></app-car-card>
+        <div *ngIf="paginatedCars.length">
+            <app-car-card [allCars]="paginatedCars"></app-car-card>
+        </div>
+
+        <!-- Ngb-Pagination Component -->
+        <div class="row" *ngIf="allCars.length !== 0">
+            <div class="col-12 d-flex justify-content-center">
+                <ngb-pagination [collectionSize]="allCars.length" [(page)]="currentPage" [pageSize]="carsPerPage"
+                    (pageChange)="paginateCars()">
+                </ngb-pagination>
+            </div>
+        </div>
     </div>
 </div>

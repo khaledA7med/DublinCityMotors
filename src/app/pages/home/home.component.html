@@ -1,12 +1,31 @@
 <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-beat" [fullScreen]="true">
     <p style="color: white"> Loading... </p>
 </ngx-spinner>
-<div class="caro mt-4" [@scaleIn]>
-    <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [interval]="2000" [pauseOnHover]="false"
+<!-- <div class="caro mt-4" [@scaleIn]>
+    <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [interval]="4000" [pauseOnHover]="false"
         [showNavigationIndicators]="showNavigationIndicators">
         <ng-template ngbSlide *ngFor="let image of images">
             <div class="picsum-img-wrapper">
                 <img [src]="image" alt="Random slide" class="carousel-img w-100" />
+            </div>
+        </ng-template>
+    </ngb-carousel>
+</div> -->
+
+<div class="caro mt-4" [@scaleIn]>
+    <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows" [interval]="4000" [pauseOnHover]="false"
+        [showNavigationIndicators]="showNavigationIndicators">
+        <ng-template ngbSlide *ngFor="let image of images">
+            <div class="picsum-img-wrapper position-relative">
+                <img [src]="image" alt="Random slide" class="carousel-img w-100" />
+                <!-- Overlay layer for car offers -->
+                <!-- <div
+                    class="offer-overlay position-absolute w-100 h-100 d-flex justify-content-center align-items-center">
+                    <div class="offer-content text-center text-white">
+                        <h3>Special Car Offer!</h3>
+                        <p>Get up to 20% off on selected models.</p>
+                    </div>
+                </div> -->
             </div>
         </ng-template>
     </ngb-carousel>
@@ -15,8 +34,8 @@
 <div class="row my-lg-5 py-lg-5 mx-5 d-flex justify-content-between deta" #animatedSection>
     <div class="col-12 col-lg-6 text-center mb-5 mb-lg-0" [@rightSecState]="orientation"
         (@rightSecState.done)="onAnimationDone($event)">
-        <h1 class="display-4 font-weight-bold">Welcome to Dublin City Motors</h1>
-        <h4 class="text-secondary mb-3">Luxury Car Boutique</h4>
+        <h1 class="display-4 font-weight-bold text-uppercase">Welcome to<br> Dublin City Motors</h1>
+        <h4 class="mb-3">Luxury Car Boutique</h4>
         <p class="text-muted px-4">
             At Dublin City Motors, we have the professional knowledge and expertise to help you at every
             step from buying to owning your luxury vehicle. Specialising in pre-owned Audi and BWMs, all
@@ -24,10 +43,10 @@
             excellent quality and value.
         </p>
     </div>
-    <div class="col-12 col-lg-6 d-flex justify-content-center" [@leftSecState]="orientation"
+    <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center" [@leftSecState]="orientation"
         (@leftSecState.done)="onAnimationDone($event)">
-        <form class="w-100" (ngSubmit)="onSearch()">
-            <div class="row d-flex justify-content-center">
+        <form class="w-100 " (ngSubmit)="onSearch()">
+            <div class="row py-5 d-flex justify-content-center">
                 <div class="col-8 mb-3">
                     <ng-select [items]="makes" placeholder="Select Make" name="make" [searchable]="true"
                         bindLabel="name" (change)="getModel($event?.id)" [(ngModel)]="selectedMake" bindValue="name"
@@ -39,10 +58,11 @@
                 </div>
                 <div class="col-8 mb-3">
                     <ng-select [items]="years" placeholder="Select Year" name="year" [searchable]="true"
-                        bindLabel="name" [(ngModel)]="selectedYear" bindValue="name" id="Year"></ng-select>
+                        [scrollTop]="true" bindLabel="name" [(ngModel)]="selectedYear" bindValue="name"
+                        id="Year"></ng-select>
                     <!-- <input class="form-control" formControlName="email" placeholder="Your email address" type="email"> -->
                 </div>
-                <div class="col-8 mb-3">
+                <div class="col-8 my-3">
                     <button type="submit" class="btn btn-secondary w-100 py-2 font-weight-bold">Search</button>
                 </div>
             </div>

@@ -14,7 +14,8 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="mb-4">
                     <label class="mb-1">Nature of Enquiry</label>
-                    <div class="btn-group w-100" role="group" aria-label="Nature of Enquiry">
+                    <div class="btn-group w-100" role="group" aria-label="Nature of Enquiry"
+                        (change)="getValue($event)">
                         <label class="btn btn-sm"
                             [class.active]="formGroup.get('natureOfEnquiry')?.value === 'Test Drive'">
                             <input type="radio" class="btn-check" formControlName="natureOfEnquiry"
@@ -99,7 +100,7 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 my-2">
                 <label for="">Pick Date</label>
-                <app-gregorian-picker (dateChange)="setDate($event)"></app-gregorian-picker>
+                <app-gregorian-picker (dateChange)="setPickDate($event)"></app-gregorian-picker>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 my-2">
                 <label for="">Pick Time</label>
@@ -107,10 +108,43 @@
                     bindLabel="name" bindValue="name" id="Make"></ng-select>
 
             </div>
-            <div class="col-12 my-2">
+            <div class="col-12 my-2" *ngIf="selectedValue !== 'Trade-in'">
                 <label for="">Your Enquiry</label>
-                <textarea class="form-control" formControlName="yourEnquiry" placeholder="Your enquiry"
+                <textarea class="form-control" formControlName="yourEnquiry" placeholder="Your enquiry" rows="3"
                     type="text"></textarea>
+            </div>
+            <div class="row" *ngIf="selectedValue === 'Trade-in'">
+                <div class="col-12 my-2">
+                    <label for="">Trade-in Details</label>
+                    <textarea class="form-control" formControlName="tradeInDetails" placeholder="Your Details" rows="3"
+                        type="text"></textarea>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 my-2 my-2">
+                    <label for="">Car Reg No.</label>
+                    <input class="form-control" formControlName="carRegNo" placeholder="Your car Reg No." type="number">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 my-2 my-2">
+                    <label for="">Current Mileage KM/Mi</label>
+                    <input class="form-control" formControlName="currentMileage" placeholder="Your Current Mileage"
+                        type="number">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 my-2 my-2">
+                    <label for="">NCT expiry date</label>
+                    <app-gregorian-picker (dateChange)="setNCTDate($event)"></app-gregorian-picker>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 my-2 my-2">
+                    <label for="">Road Tax expiry date</label>
+                    <app-gregorian-picker (dateChange)="setTaxDate($event)"></app-gregorian-picker>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 my-2 my-2">
+                    <label for="">Condition</label>
+                    <input class="form-control" formControlName="condition" placeholder="Your Condition" type="text">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 my-2 my-2">
+                    <label for="">Price expectation</label>
+                    <input class="form-control" formControlName="priceExpectation" placeholder="Your Price Expectation"
+                        type="number">
+                </div>
             </div>
         </div>
 

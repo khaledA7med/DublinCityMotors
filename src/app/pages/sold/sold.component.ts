@@ -27,6 +27,10 @@ export class SoldComponent implements OnInit, OnDestroy {
   subscription: Subscription[] = [];
   allCars: any[] = [];
 
+  currentPage = 1;
+  carsPerPage = 12;
+  paginatedCars: any[] = [];
+
   constructor(
     private spinner: NgxSpinnerService,
     private carsService: CarsService
@@ -41,7 +45,7 @@ export class SoldComponent implements OnInit, OnDestroy {
     let sub = this.carsService.getSoldCars().subscribe({
       next: (res) => {
         this.allCars = res;
-        console.log(this.allCars);
+        this.paginateCars();
         this.spinner.hide();
       },
       error: (err) => {
@@ -49,6 +53,30 @@ export class SoldComponent implements OnInit, OnDestroy {
       },
     });
     this.subscription.push(sub);
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.allCars.length / this.carsPerPage);
+  }
+
+  paginateCars() {
+    const start = (this.currentPage - 1) * this.carsPerPage;
+    const end = start + this.carsPerPage;
+    this.paginatedCars = this.allCars.slice(start, end);
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.paginateCars();
+    }
+  }
+
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.paginateCars();
+    }
   }
   ngOnDestroy(): void {
     this.subscription && this.subscription.forEach((s) => s.unsubscribe());

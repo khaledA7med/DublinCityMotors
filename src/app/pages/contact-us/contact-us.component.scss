@@ -122,3 +122,104 @@ hr {
     font-size: 1.5rem;
   }
 }
+
+.contact-info {
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+  .contact-item {
+    font-size: 1rem;
+    color: #555;
+
+    i {
+      font-size: 1.2rem;
+      color: #007bff; // Adjust primary color as desired
+    }
+
+    a {
+      color: #007bff;
+      &:hover {
+        text-decoration: underline;
+        color: #0056b3;
+      }
+    }
+
+    strong {
+      color: #333;
+    }
+  }
+
+  .section-title h3 {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 700;
+  }
+
+  // Add responsive adjustments
+  @media (max-width: 768px) {
+    padding: 1rem;
+    .contact-item {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.opening-hours-section {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+
+  .section-title h3 {
+    color: #333;
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+
+  table {
+    th {
+      font-weight: 600;
+      color: #555; // Customize primary color
+    }
+
+    td {
+      font-size: 1rem;
+      color: #555;
+
+      i {
+        color: #007bff;
+      }
+
+      &:last-child {
+        font-weight: 500;
+      }
+    }
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .social-icons {
+    a {
+      color: #555;
+      font-size: 1.6rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #007bff;
+      }
+    }
+  }
+}

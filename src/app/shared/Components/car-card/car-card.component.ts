@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { SharedService } from '../services/shared.service';
+import { SharedService } from '../../services/shared.service';
 import { Router } from '@angular/router';
-import { CarsService } from '../services/pagesServices/cars.service';
+import { CarsService } from '../../services/pagesServices/cars.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({

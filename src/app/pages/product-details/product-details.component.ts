@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { EnquireCarComponent } from 'src/app/shared/enquire-car/enquire-car.component';
+import { EnquireCarComponent } from 'src/app/shared/Components/enquire-car/enquire-car.component';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { ActivatedRoute } from '@angular/router';
