@@ -179,7 +179,6 @@ export class HomeComponent implements OnInit {
         if (res) {
           this.spinner.hide();
           this.offersData = res;
-          console.log(this.offersData);
         }
       },
       (error) => {
