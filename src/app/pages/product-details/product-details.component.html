@@ -81,176 +81,206 @@
         <div class="col-md-12 bg-none p-3">
             <ul ngbNav #nav="ngbNav" (activeId)="1" class="nav-underline nav-justified">
                 <li [ngbNavItem]="1">
-                    <button class="text-muted" ngbNavLink>OVERVIEW</button>
+                    <button class="text-muted" ngbNavLink>Specs Overview</button>
                     <ng-template ngbNavContent>
-                        <div class="row px-4">
-                            <div class="col-md-3">
-                                <table class="table table-hover">
-                                    <tbody>
-                                        <tr>
-                                            <td class="fw-bold">Make</td>
-                                            <td>{{selectedCar.makeName}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Model</td>
-                                            <td>{{selectedCar.modelName}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Reg Year </td>
-                                            <td>{{selectedCar.regYear}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Mileage </td>
-                                            <td>{{selectedCar.mileage}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Fuel Type </td>
-                                            <td>{{selectedCar.fuelType}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Transmission </td>
-                                            <td>{{selectedCar.transmission}} </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Drive </td>
-                                            <td>{{selectedCar.drive}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Body Type </td>
-                                            <td>{{selectedCar?.bodyType}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Exterior Color </td>
-                                            <td>{{selectedCar.exteriorColor}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="fw-bold">Interior Color </td>
-                                            <td>{{selectedCar.interiorColor}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="row mb-3 p-2 bg-secondary">
+                            <div class="col-md-12 d-flex justify-content-between">
+                                <span><i class="fa-solid fa-gas-pump me-2"></i>{{selectedCar.drive}}</span>
+                                <span><i class="fa-solid fa-gas-pump me-2"></i>{{selectedCar.transmission}}</span>
+                                <span><i class="fa-solid fa-gas-pump me-2"></i>{{selectedCar.fuelType}}</span>
+                                <span><i class="fa-solid fa-gas-pump me-2"></i>{{selectedCar.doors}}</span>
                             </div>
-                            <div class="col-md-9 disc">
-                                <p>
-                                    {{selectedCar.shortDescription}}
-                                </p>
-                            </div>
+                        </div>
+                        <div class="table-responsive px-4">
+                            <table class="table table-sm table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-bold">Power (bhp)</td>
+                                        <td>{{selectedCar.power}} bhp</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Acceleration 0-60 mph</td>
+                                        <td>{{selectedCar.mph}} secs</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Miles per tank</td>
+                                        <td>{{selectedCar.miles}} miles</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Insurance group</td>
+                                        <td>21</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Road tax</td>
+                                        <td>{{selectedCar.tax}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Dimensions (mm)</td>
+                                        <td>Length 4456mm X Width 1960mm</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </ng-template>
                 </li>
                 <li [ngbNavItem]="2">
-                    <button class="text-muted" ngbNavLink>SPECIFICATION</button>
+                    <button class="text-muted" ngbNavLink>Dimensions</button>
                     <ng-template ngbNavContent>
-                        <!-- Interior -->
-                        <div class="px-4 py-3 bg-white mb-3">
-                            <div class="row justify-content-between" style="cursor: pointer;"
-                                (click)="collapse1.toggle()" [attr.aria-expanded]="!isInteriorCollapsed"
-                                aria-controls="collapseExample">
-                                <h5 class="text-dark fw-bold mb-3 w-50">
-                                    Interior
-                                </h5>
-                                <i class="fa w-50 text-end"
-                                    [ngClass]="!isInteriorCollapsed ? 'fa-caret-down' :  'fa-caret-up'"
-                                    aria-hidden="true"></i>
-                            </div>
-                            <div class="row px-3" #collapse1="ngbCollapse" [(ngbCollapse)]="isInteriorCollapsed">
-                                <div class="col-md-3 mb-3" *ngFor="let interior of selectedCar?.interiors">
-                                    <i class="fa-brands fa-twitch me-2"></i><span
-                                        class=" text-muted">{{interior}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Exterior -->
-                        <div class="px-4 py-3 bg-white mb-3">
-                            <div class="row justify-content-between" style="cursor: pointer;"
-                                (click)="collapse2.toggle()" [attr.aria-expanded]="!isExteriorCollapsed"
-                                aria-controls="collapseExample">
-                                <h5 class="text-dark fw-bold mb-3 w-50">
-                                    Exterior
-                                </h5>
-                                <i class="fa w-50 text-end"
-                                    [ngClass]="!isExteriorCollapsed ? 'fa-caret-down' :  'fa-caret-up'"
-                                    aria-hidden="true"></i>
-                            </div>
-                            <div class="row px-3" #collapse2="ngbCollapse" [(ngbCollapse)]="isExteriorCollapsed">
-                                <div class="col-md-3 mb-3" *ngFor="let exterior of selectedCar?.exteriors">
-                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted">
-                                        {{exterior}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Tech -->
-                        <div class="px-4 py-3 bg-white mb-3">
-                            <div class="row justify-content-between" style="cursor: pointer;"
-                                (click)="collapse3.toggle()" [attr.aria-expanded]="!isTechCollapsed"
-                                aria-controls="collapseExample">
-                                <h5 class="text-dark fw-bold mb-3 w-50">
-                                    Tech
-                                </h5>
-                                <i class="fa w-50 text-end"
-                                    [ngClass]="!isTechCollapsed ? 'fa-caret-down' :  'fa-caret-up'"
-                                    aria-hidden="true"></i>
-                            </div>
-                            <div class="row px-3" #collapse3="ngbCollapse" [(ngbCollapse)]="isTechCollapsed">
-                                <div class="col-md-3 mb-3" *ngFor="let tech of selectedCar?.teches">
-                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted"> {{tech}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Safety -->
-                        <div class="px-4 py-3 bg-white mb-3">
-                            <div class="row justify-content-between" style="cursor: pointer;"
-                                (click)="collapse4.toggle()" [attr.aria-expanded]="!isSafetyCollapsed"
-                                aria-controls="collapseExample">
-                                <h5 class="text-dark fw-bold mb-3 w-50">
-                                    Safety
-                                </h5>
-                                <i class="fa w-50 text-end"
-                                    [ngClass]="!isSafetyCollapsed ? 'fa-caret-down' :  'fa-caret-up'"
-                                    aria-hidden="true"></i>
-                            </div>
-                            <div class="row px-3" #collapse4="ngbCollapse" [(ngbCollapse)]="isSafetyCollapsed">
-                                <div class="col-md-3 mb-3" *ngFor="let safty of selectedCar?.safeties">
-                                    <i class="fa-brands fa-twitch me-2"></i><span class=" text-muted"> {{safty}}</span>
-                                </div>
-                            </div>
+                        <div class="table-responsive px-4">
+                            <table class="table table-sm table-striped">
+                                <tbody>
+                                    <tr>
+                                        <th>Fuel Capacity</th>
+                                        <td>{{selectedCar.fuelCapacity}} litres</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Weight</th>
+                                        <td>{{selectedCar.weight}} kg</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Length</th>
+                                        <td>{{selectedCar.length}} mm</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Width</th>
+                                        <td>{{selectedCar.width}} mm</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Height</th>
+                                        <td>{{selectedCar.height}} mm</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Wheelbase</th>
+                                        <td>{{selectedCar.wheelbase}} mm</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Turning Circle</th>
+                                        <td>{{selectedCar.turningCircle}} m</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </ng-template>
                 </li>
                 <li [ngbNavItem]="3">
-                    <button class="text-muted" ngbNavLink>TECHNICAL</button>
+                    <button class="text-muted" ngbNavLink>Performance</button>
                     <ng-template ngbNavContent>
-                        <div class="px-4">
-                            <table class="table w-25 table-hover">
-                                <tbody class="px-3">
-                                    <tr class="px-3">
-                                        <td class="fw-bold">Engine Size</td>
-                                        <td>{{selectedCar.engineSize}}</td>
+                        <div class="table-responsive px-4">
+                            <table class="table table-sm table-striped">
+                                <tbody>
+                                    <tr>
+                                        <th>Power</th>
+                                        <td>{{selectedCar.power}} bhp</td>
                                     </tr>
                                     <tr>
-                                        <td class="fw-bold">Fuel Type</td>
-                                        <td>{{selectedCar.fuelType}}</td>
+                                        <th>Top Speed</th>
+                                        <td>{{selectedCar.topSpeed}} mph</td>
                                     </tr>
                                     <tr>
-                                        <td class="fw-bold">Cylinders</td>
+                                        <th>0-60 mph</th>
+                                        <td>{{selectedCar.mph}} secs</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Torque</th>
+                                        <td>{{selectedCar.torque}} Nm</td>
+                                    </tr>
+                                    <tr>
+                                        <th>CO2 Emissions</th>
+                                        <td>{{selectedCar.emissions}} g/km</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Euro Emissions Standard</th>
+                                        <td>{{selectedCar.euroEmissions}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Miles Per Tank</th>
+                                        <td>{{selectedCar.miles}} miles</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr>
+
+                        <!-- Engine Details -->
+                        <div class="row justify-content-between" style="cursor: pointer;" (click)="collapse1.toggle()"
+                            [attr.aria-expanded]="!isEnginCollapsed" aria-controls="collapseExample">
+                            <h5 class="text-dark fw-bold m-0 w-50">
+                                Engine Details
+                            </h5>
+                            <i class="fa w-50 text-end" [ngClass]="!isEnginCollapsed ? 'fa-caret-down' :  'fa-caret-up'"
+                                aria-hidden="true"></i>
+                        </div>
+                        <div class="table-responsive px-4 pt-3" #collapse1="ngbCollapse"
+                            [(ngbCollapse)]="isEnginCollapsed">
+                            <table class="table table-sm table-striped">
+                                <tbody>
+                                    <tr>
+                                        <th>Engine Size</th>
+                                        <td>{{selectedCar.engineSize}} cc</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Cylinders</th>
                                         <td>{{selectedCar.cylinders}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="fw-bold">Drive Axle</td>
-                                        <td>{{selectedCar.driveAxle}}</td>
-                                    </tr>
-                                    <!-- <tr>
-                                        <td class="fw-bold">BHP</td>
-                                        <td>190</td>
+                                        <th>Valves</th>
+                                        <td>{{selectedCar.valves}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="fw-bold">Co2 Emissions</td>
-                                        <td>129</td>
+                                        <th>Fuel Type</th>
+                                        <td>{{selectedCar.fuelType}}</td>
                                     </tr>
                                     <tr>
-                                        <td class="fw-bold">NOX</td>
-                                        <td>g/km</td>
-                                    </tr> -->
+                                        <th>Transmission</th>
+                                        <td>{{selectedCar.transmission}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Gearbox</th>
+                                        <td>{{selectedCar.gearbox}} Speed S Tronic</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Drivetrain</th>
+                                        <td>{{selectedCar.drive}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <hr>
+
+                        <div class="row justify-content-between" style="cursor: pointer;" (click)="collapse2.toggle()"
+                            [attr.aria-expanded]="!isCabinCollapsed" aria-controls="collapseExample">
+                            <h5 class="text-dark fw-bold m-0 w-50">
+                                Cabin & Luggage
+                            </h5>
+                            <i class="fa w-50 text-end" [ngClass]="!isCabinCollapsed ? 'fa-caret-down' :  'fa-caret-up'"
+                                aria-hidden="true"></i>
+                        </div>
+                        <div class="table-responsive px-4 pt-3" #collapse2="ngbCollapse"
+                            [(ngbCollapse)]="isCabinCollapsed">
+                            <table class="table table-sm table-striped">
+                                <tbody>
+                                    <tr>
+                                        <th>Doors</th>
+                                        <td>{{selectedCar.doors}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Seats</th>
+                                        <td>{{selectedCar.seats}} mph</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Luggage Capacity</th>
+                                        <td>{{selectedCar.luggage}} litres</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Unbraked Towing Weight</th>
+                                        <td>{{selectedCar.unbraked}} kg</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Braked Towing Weight</th>
+                                        <td>{{selectedCar.braked}} kg</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
