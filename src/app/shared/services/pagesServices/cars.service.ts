@@ -38,4 +38,8 @@ export class CarsService {
   getSoldCars(): Observable<any> {
     return this.http.get<any>(this.env + 'cars/sold');
   }
+
+  getAllOffers(): Observable<any> {
+    return this.http.get(this.env + `offers/getActiveOffers`);
+  }
 }

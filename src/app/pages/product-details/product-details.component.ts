@@ -53,10 +53,8 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   public album: Array<any> = [];
   modalRef!: NgbModalRef;
   selectedCar: any;
-  isInteriorCollapsed: boolean = false;
-  isExteriorCollapsed: boolean = false;
-  isTechCollapsed: boolean = false;
-  isSafetyCollapsed: boolean = false;
+  isEnginCollapsed: boolean = false;
+  isCabinCollapsed: boolean = false;
   constructor(
     private sharedService: SharedService,
     private modalService: NgbModal,
