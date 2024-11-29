@@ -62,9 +62,9 @@ export class HomeComponent implements OnInit {
   showNavigationIndicators = false;
 
   images = [
-    '../../../assets/images/539154.jpg',
-    '../../../assets/images/jaguar-car-0h4vhh2g85m0elx1.jpg',
-    '../../../assets/images/shiny-hot-red-jaguar-car-6ato97yhe2zlhqi4.jpg',
+    '../../../assets/images/Slider (1).jpg',
+    '../../../assets/images/Slider (2).jpg',
+    // '../../../assets/images/shiny-hot-red-jaguar-car-6ato97yhe2zlhqi4.jpg',
   ];
 
   makes = [];

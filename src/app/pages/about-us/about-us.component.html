@@ -2,7 +2,7 @@
     <p style="color: white">Loading...</p>
 </ngx-spinner>
 
-<div class="container about-us-container my-5" [@scaleIn]>
+<div class="container-fluid about-us-container" [@scaleIn]>
     <!-- Header Section -->
     <header class="header-section text-center mb-5" [@scaleIn]>
         <h1 class="display-4 fw-bold">About Us</h1>
@@ -10,6 +10,7 @@
         <div class="divider"></div>
     </header>
 
+    <!-- About Content Section -->
     <div class="container about-content" [@scaleIn]>
         <div class="row">
             <!-- Text Section -->
@@ -17,7 +18,7 @@
                 <p>
                     At DCM, we trust in German engineering. Our passion for these elegantly powerful machines goes back
                     more than 30 years. What started as a fascination became a full-time profession – buying and selling
-                    the favourite cars of automotive enthusiasts worldwide. <br><br>
+                    the favorite cars of automotive enthusiasts worldwide. <br><br>
 
                     Starting out with focus on iconic gems such as the BMW E30, Audi Ur Quattro, and VW Golf GTI from
                     the golden era of the 80s and 90s, we now source nearly new, low-mileage, highly maintained cars for
@@ -28,51 +29,33 @@
                     seeking the epitome of performance, style, and craftsmanship in German automobiles. <br><br>
 
                     As a luxury car boutique, what sets us apart is not merely the stunning cars we offer, but also the
-                    personalised experience we provide. At DCM, we understand that each customer is unique and finding
-                    their dream vehicle an easy and enjoyable journey is our speciality. We are always available to
-                    answer your questions and guide you towards the perfect choice.
-                    As specialists in high-spec pre-owned Audis, we take great pride in offering a hand-picked selection
-                    of these prestigious cars.
+                    personalized experience we provide. At DCM, we understand that each customer is unique and finding
+                    their dream vehicle an easy and enjoyable journey is our specialty.
                 </p>
             </div>
 
-            <!-- Image Gallery -->
+            <!-- Image Gallery Section -->
             <div class="col-lg-6 col-md-12 about-images">
-                <div class="image-wrapper">
-                    <img src="../../../assets//images/jaguar-car-0h4vhh2g85m0elx1.jpg" alt="Dublin City Motors"
-                        class="gallery-img">
-                </div>
-                <div class="image-wrapper">
-                    <img src="../../../assets//images/jaguar-car-0h4vhh2g85m0elx1.jpg" alt="Dublin City Motors"
-                        class="gallery-img">
-                </div>
-                <div class="image-wrapper">
-                    <img src="../../../assets//images/jaguar-car-0h4vhh2g85m0elx1.jpg" alt="Dublin City Motors"
-                        class="gallery-img">
+                <div class="image-wrapper" *ngFor="let image of images">
+                    <img [src]="image" [alt]="image" class="gallery-img">
                 </div>
             </div>
         </div>
 
+        <!-- Mission Statement -->
         <div class="mission-section mt-5">
             <h3 class="section-title">Our Mission</h3>
             <p>
                 Our mission is simple yet powerful – to ensure our customers’ utmost satisfaction and foster lasting
                 relationships with them. We take immense pride in being at the forefront of our industry, operating
-                on remarkably low margins without ever compromising on quality or service.<br><br>
-
-                Our relationship doesn’t cease at the point of sale. At DCM, we firmly believe in cultivating
-                enduring connections. When the time comes to select your next model, rest assured that we will be
-                here to welcome you back with open arms. We are happy to take quality trade-ins, committed to
-                offering you a remarkably fair price for your car – ensuring a smooth and rewarding upgrade
-                journey.<br><br>
+                on remarkably low margins without ever compromising on quality or service. <br><br>
 
                 Trust is not bestowed but earned. We believe that your experience will give you the confidence to
-                come back time and time again.<br><br>
-
+                come back time and time again.
             </p>
         </div>
 
-        <!-- Call to Action -->
+        <!-- Call to Action Button -->
         <div class="text-center mt-5 action-btn">
             <span class="go-to-text">Explore Our Stock</span>
             <button class="btn btn-primary" routerLink="/view-stock">View Stock</button>

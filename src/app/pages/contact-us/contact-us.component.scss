@@ -1,6 +1,6 @@
 /* General Styles */
 .container {
-  margin-top: 100px !important;
+  margin-top: 150px !important;
 }
 
 .card-title {
@@ -60,7 +60,7 @@ hr {
 }
 
 /* section-title style */
-.section-title h3 {
+.section-title h5 {
   font-family: "Arial", sans-serif;
   color: #4d4a4a;
   font-size: 20px;
@@ -72,8 +72,8 @@ hr {
   text-transform: capitalize;
 }
 
-.section-title h3:after,
-.section-title h3:before {
+.section-title h5:after,
+.section-title h5:before {
   content: "";
   left: 0;
   margin: 0 auto;
@@ -81,7 +81,7 @@ hr {
   right: 0;
 }
 
-.section-title h3:before {
+.section-title h5:before {
   border-color: #4d4a4a;
   border-style: solid;
   border-width: 1px 0;
@@ -90,7 +90,7 @@ hr {
   width: 40px;
 }
 
-.section-title h3:after {
+.section-title h5:after {
   background-color: #4d4a4a;
   bottom: 5px;
   height: 1px;
@@ -151,8 +151,8 @@ hr {
     }
   }
 
-  .section-title h3 {
-    font-size: 1.8rem;
+  .section-title h5 {
+    font-size: 1.2rem;
     color: #333;
     font-weight: 700;
   }
@@ -172,7 +172,7 @@ hr {
   border-radius: 8px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 
-  .section-title h3 {
+  .section-title h5 {
     color: #333;
     font-weight: 700;
     font-size: 1.8rem;

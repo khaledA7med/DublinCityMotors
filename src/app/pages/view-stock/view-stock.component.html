@@ -2,31 +2,34 @@
     <p style="color: white"> Loading... </p>
 </ngx-spinner>
 <div class="container-fluid content" [@scaleIn]>
-    <div class="row" [@scaleIn]>
-        <div class="page-title mb-5">
-            <h3 class="fw-bold">VIEW STOCK</h3>
-            <span class="subTitle">
-                <a routerLink="/">Home</a> / VIEW STOCK
-            </span>
-        </div>
-        <div class="filter mb-5">
-            <button class="navbar-toggler" type="button" (click)="openFilter()">
-                <span class="">
-                    <i class="fa-solid fa-align-justify text-muted"></i>
+    <div class="row d-flex justify-content-between" [@scaleIn]>
+        <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="page-title mb-5">
+                <h3 class="fw-bold">VIEW STOCK</h3>
+                <span class="subTitle">
+                    <a routerLink="/">Home</a> / VIEW STOCK
                 </span>
-                Filters
-            </button>
-        </div>
-
-        <div class="row sort mb-5">
-            <div class="col-md-3">
-                <ng-select [items]="Sort" [searchable]="true" bindLabel="name" (change)="onSortChange()"
-                    bindValue="name" id="sort" [(ngModel)]="selectedSort"></ng-select>
             </div>
         </div>
+        <div class="col-lg-6 col-md-12 col-sm-12 d-flex align-items-baseline justify-content-end">
+            <div class="d-flex align-items-baseline">
+                <div class="row sort mb-5">
+                    <div class="col-12">
+                        <ng-select [items]="Sort" [searchable]="true" bindLabel="name" (change)="onSortChange()"
+                            bindValue="name" id="sort" [(ngModel)]="selectedSort"></ng-select>
+                    </div>
+                </div>
 
-
-
+                <div class="filter mb-5 mx-2">
+                    <button class="navbar-toggler" type="button" (click)="openFilter()">
+                        <span class="">
+                            <i class="fa-solid fa-align-justify text-muted"></i>
+                        </span>
+                        Filters
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="mb-4" [@scaleIn]>

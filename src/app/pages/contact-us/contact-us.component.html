@@ -11,7 +11,7 @@
 
     <div class="row" [@scaleIn]>
         <!-- Google Maps Embed -->
-        <div class="col-lg-6 col-md-12 col-sm-12 mb-4 mt-5">
+        <div class="col-lg-6 col-md-12 col-sm-12 mb-4 mt-3">
             <div class="mapouter">
                 <div class="gmap_canvas">
                     <iframe
@@ -23,106 +23,100 @@
 
         <!-- Contact Information -->
         <div class="col-lg-6 col-md-12 col-sm-12">
-            <div class="card border-0 shadow-sm p-4">
-                <div class="section-title text-center mb-4">
-                    <h3 class="fw-bold">Contact Information</h3>
+            <div class="contact-info">
+                <div class="contact-item mb-3 d-flex align-items-center">
+                    <i class='bx bx-current-location me-1 text-dark'></i>
+                    <!-- <strong>Address:</strong> -->
+                    <div>
+                        Bellevue, Windy Arbour, Dundrum Road,
+                        Dublin, Eircode D14 H588
+                    </div>
                 </div>
-
-                <div class="contact-info">
-                    <div class="contact-item mb-3 d-flex align-items-center">
-                        <i class='bx bx-current-location me-1 text-dark'></i>
-                        <!-- <strong>Address:</strong> -->
-                        <div>
-                            Bellevue, Windy Arbour, Dundrum Road,
-                            Dublin, Eircode D14 H588
-                        </div>
+                <div class="contact-item mb-3 d-flex align-items-center">
+                    <i class='bx bxs-envelope me-1 text-dark'></i>
+                    <!-- <strong>Email:</strong> -->
+                    <div>
+                        <a class="text-secondary ms-1"
+                            href="mailto:sales@dublincitymotors.ie">sales&#64;dublincitymotors.ie</a>
                     </div>
-                    <div class="contact-item mb-3 d-flex align-items-center">
-                        <i class='bx bxs-envelope me-1 text-dark'></i>
-                        <!-- <strong>Email:</strong> -->
-                        <div>
-                            <a class="text-secondary ms-1"
-                                href="mailto:sales@dublincitymotors.ie">sales&#64;dublincitymotors.ie</a>
-                        </div>
-                    </div>
-                    <div class="contact-item mb-3 d-flex justify-content-between">
-                        <div class="d-flex align-items-center">
-                            <i class='bx bxs-phone me-2 text-dark'></i>
-                            <div>
-                                <strong>Sales:</strong>
-                                <a class="text-secondary ms-1" href="tel:012963246">012963246</a>
-                            </div>
-                        </div>
-                        <div class=" d-flex align-items-center">
-                            <i class='bx bxs-phone me-1 text-dark'></i>
-                            <strong>Service:</strong>
-                            <a class="text-secondary ms-1" href="tel:015618782">015618782</a>
-                        </div>
-                    </div>
-
                 </div>
-
-                <hr class="my-4" />
-
-                <div class="opening-hours-section">
-                    <div class="section-title text-center mb-4">
-                        <h3 class="fw-bold">Opening Hours</h3>
+                <div class="contact-item mb-3 d-flex justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <i class='bx bxs-phone me-2 text-dark'></i>
+                        <div>
+                            <strong>Sales:</strong>
+                            <a class="text-secondary ms-1" href="tel:012963246">012963246</a>
+                        </div>
                     </div>
-                    <table class="table table-sm table-borderless">
-                        <thead>
-                            <tr class="text-primary">
-                                <th class="px-3">Day</th>
-                                <th>Opening Hours</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><i class='bx bxs-calendar me-2 text-dark'></i>Monday</td>
-                                <td><i class='bx bxs-alarm me-2 text-dark'></i>10 AM – 6 PM</td>
-                            </tr>
-                            <tr>
-                                <td><i class='bx bxs-calendar me-2 text-dark'></i>Tuesday</td>
-                                <td><i class='bx bxs-alarm me-2 text-dark'></i>10 AM – 6 PM</td>
-                            </tr>
-                            <tr>
-                                <td><i class='bx bxs-calendar me-2 text-dark'></i>Wednesday</td>
-                                <td><i class='bx bxs-alarm me-2 text-dark'></i>10 AM – 6 PM</td>
-                            </tr>
-                            <tr>
-                                <td><i class='bx bxs-calendar me-2 text-dark'></i>Thursday</td>
-                                <td><i class='bx bxs-alarm me-2 text-dark'></i>10 AM – 7 PM</td>
-                            </tr>
-                            <tr>
-                                <td><i class='bx bxs-calendar me-2 text-dark'></i>Friday</td>
-                                <td><i class='bx bxs-alarm me-2 text-dark'></i> 10 AM – 6 PM</td>
-                            </tr>
-                            <tr>
-                                <td><i class='bx bxs-calendar me-2 text-dark'></i>Saturday</td>
-                                <td><i class='bx bxs-alarm me-2 text-dark'></i>10 AM – 4 PM</td>
-                            </tr>
-                            <tr>
-                                <td><i class='bx bx-calendar-x me-2 text-danger'></i>Sunday</td>
-                                <td><i class='bx bx-window-close me-2 text-danger'></i>Closed</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="text-muted text-center mt-2">
-                        <em>After-hours appointments can be made by arrangement.</em>
-                    </p>
-
-                    <div class="text-center mt-4">
-                        <button (click)="openEnquiry()" class="btn btn-secondary w-50 shadow-sm">Enquire Now</button>
-                    </div>
-
-                    <!-- Social Media Links -->
-                    <div class="social-icons text-center mt-3">
-                        <a href="#" class="text-secondary mx-2"><i class="bx bxl-facebook fs-4"></i></a>
-                        <a href="#" class="text-secondary mx-2"><i class="bx bxl-instagram fs-4"></i></a>
-                        <a href="#" class="text-secondary mx-2"><i class="bx bxl-whatsapp fs-4"></i></a>
+                    <div class=" d-flex align-items-center">
+                        <i class='bx bxs-phone me-1 text-dark'></i>
+                        <strong>Service:</strong>
+                        <a class="text-secondary ms-1" href="tel:015618782">015618782</a>
                     </div>
                 </div>
 
             </div>
+
+            <hr class="my-4" />
+
+            <div class="opening-hours-section">
+                <div class="section-title text-center mb-4">
+                    <h5 class="fw-bold">Opening Hours</h5>
+                </div>
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr class="text-primary">
+                            <th class="px-3">Day</th>
+                            <th>Opening Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class='bx bxs-calendar me-2 text-dark'></i>Monday</td>
+                            <td><i class='bx bxs-alarm me-2 text-dark'></i>10 AM – 6 PM</td>
+                        </tr>
+                        <tr>
+                            <td><i class='bx bxs-calendar me-2 text-dark'></i>Tuesday</td>
+                            <td><i class='bx bxs-alarm me-2 text-dark'></i>10 AM – 6 PM</td>
+                        </tr>
+                        <tr>
+                            <td><i class='bx bxs-calendar me-2 text-dark'></i>Wednesday</td>
+                            <td><i class='bx bxs-alarm me-2 text-dark'></i>10 AM – 6 PM</td>
+                        </tr>
+                        <tr>
+                            <td><i class='bx bxs-calendar me-2 text-dark'></i>Thursday</td>
+                            <td><i class='bx bxs-alarm me-2 text-dark'></i>10 AM – 7 PM</td>
+                        </tr>
+                        <tr>
+                            <td><i class='bx bxs-calendar me-2 text-dark'></i>Friday</td>
+                            <td><i class='bx bxs-alarm me-2 text-dark'></i> 10 AM – 6 PM</td>
+                        </tr>
+                        <tr>
+                            <td><i class='bx bxs-calendar me-2 text-dark'></i>Saturday</td>
+                            <td><i class='bx bxs-alarm me-2 text-dark'></i>10 AM – 4 PM</td>
+                        </tr>
+                        <tr>
+                            <td><i class='bx bx-calendar-x me-2 text-danger'></i>Sunday</td>
+                            <td><i class='bx bx-window-close me-2 text-danger'></i>Closed</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-muted text-center mt-2">
+                    <em>After-hours appointments can be made by arrangement.</em>
+                </p>
+
+                <div class="text-center mt-4">
+                    <button (click)="openEnquiry()" class="btn btn-secondary w-50 shadow-sm">Enquire Now</button>
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="social-icons text-center mt-3">
+                    <a href="#" class="text-secondary mx-2"><i class="bx bxl-facebook fs-4"></i></a>
+                    <a href="#" class="text-secondary mx-2"><i class="bx bxl-instagram fs-4"></i></a>
+                    <a href="#" class="text-secondary mx-2"><i class="bx bxl-whatsapp fs-4"></i></a>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

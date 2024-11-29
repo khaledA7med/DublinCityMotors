@@ -29,9 +29,9 @@ export class AboutUsComponent implements OnInit {
   // );
 
   images = [
-    '../../../assets/images/539154.jpg',
-    '../../../assets/images/jaguar-car-0h4vhh2g85m0elx1.jpg',
-    '../../../assets/images/shiny-hot-red-jaguar-car-6ato97yhe2zlhqi4.jpg',
+    '../../../assets/images/about/Audi Quattro Coupe.jpg',
+    '../../../assets/images/about/Audi Quattro Coupe.jpg',
+    '../../../assets/images/about/BMW-E30.jpg',
   ];
 
   constructor(private spinner: NgxSpinnerService) {}
