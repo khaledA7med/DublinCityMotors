@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  ApiUrl: 'http://172.104.146.188:8080/DublinCityMotors/api/user/',
+  ApiUrl: 'https://172.104.146.188:8443/DublinCityMotors/api/user/',
 };
