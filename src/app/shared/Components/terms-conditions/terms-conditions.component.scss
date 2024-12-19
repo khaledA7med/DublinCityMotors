@@ -28,3 +28,15 @@
     font-weight: 600;
   }
 }
+
+.subTitle {
+  font-size: 12px;
+  color: rgba(33, 37, 41, 0.75);
+  a {
+    color: rgba(33, 37, 41, 0.75);
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline !important;
+  }
+}

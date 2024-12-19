@@ -22,3 +22,25 @@ export interface CarEnquiry {
   condition: FormControl<string | null>;
   priceExpectation: FormControl<number | null>;
 }
+export interface CarEnquiryData {
+  natureOfEnquiry: string;
+  contactMeBy: string;
+  firstName: string;
+  surName: string;
+  contactNumber: string;
+  emailAddress: string;
+  carName: string;
+  carMake: string;
+  carModel: string;
+  carYear: number;
+  pickDate: Date;
+  pickTime: string;
+  yourEnquiry: string;
+  tradeInDetails: string;
+  carRegNo: number;
+  currentMileage: number;
+  nctExpiryDate: Date;
+  roadTaxExpiryDate: string;
+  condition: string;
+  priceExpectation: number;
+}

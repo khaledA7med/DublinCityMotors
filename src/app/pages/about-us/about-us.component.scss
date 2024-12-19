@@ -5,21 +5,19 @@ $accent-color: #ffcd00;
 $bg-light: #f9f9f9;
 
 .about-us-container {
-  margin-top: 150px !important;
+  padding-top: 150px;
   background-color: $bg-light;
-  padding: 2rem;
+  // padding: 2rem;
   border-radius: 10px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .header-section {
   color: $primary-color;
-
   .display-4 {
     font-weight: 700;
     color: $secondary-color;
   }
-
   .divider {
     width: 80px;
     height: 4px;
@@ -33,7 +31,6 @@ $bg-light: #f9f9f9;
   color: $secondary-color;
   font-size: 1.1rem;
   line-height: 1.7;
-
   p {
     margin-bottom: 1.5rem;
   }
@@ -42,23 +39,24 @@ $bg-light: #f9f9f9;
 .about-images {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   gap: 15px;
-
   .image-wrapper {
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
     .gallery-img {
       display: block;
       width: 100%;
-      height: 200px;
+      height: 240px;
       object-fit: cover;
       transition: transform 0.4s ease;
-
       &:hover {
         transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
       }
     }
   }
@@ -67,15 +65,11 @@ $bg-light: #f9f9f9;
 .mission-section {
   margin-top: 3rem;
   text-align: center;
-
   .section-title {
     font-family: "Roboto", sans-serif;
     font-size: 2rem;
     color: $secondary-color;
     font-weight: 700;
-    position: relative;
-    margin-bottom: 2rem;
-
     &::after {
       content: "";
       width: 80px;
@@ -83,6 +77,24 @@ $bg-light: #f9f9f9;
       background-color: $accent-color;
       display: block;
       margin: 1rem auto;
+    }
+  }
+  .reviews-section {
+    margin-top: 3rem;
+    text-align: center;
+    .section-title {
+      font-family: "Roboto", sans-serif;
+      font-size: 2rem;
+      color: $secondary-color;
+      font-weight: 700;
+      &::after {
+        content: "";
+        width: 80px;
+        height: 4px;
+        background-color: $accent-color;
+        display: block;
+        margin: 1rem auto;
+      }
     }
   }
 }
@@ -93,7 +105,6 @@ $bg-light: #f9f9f9;
     color: $secondary-color;
     margin-right: 1rem;
   }
-
   .btn-primary {
     background-color: $primary-color;
     border: none;
@@ -101,7 +112,6 @@ $bg-light: #f9f9f9;
     font-size: 1.1rem;
     font-weight: bold;
     transition: background-color 0.3s ease;
-
     &:hover {
       background-color: darken($primary-color, 10%);
     }
@@ -111,12 +121,10 @@ $bg-light: #f9f9f9;
 .reviews-section {
   margin-top: 3rem;
   text-align: center;
-
   .section-title {
     font-size: 2rem;
     color: $secondary-color;
   }
-
   p {
     color: $secondary-color;
     font-size: 1rem;
@@ -134,7 +142,6 @@ $bg-light: #f9f9f9;
   .header-section .display-4 {
     font-size: 2.5rem;
   }
-
   .section-title {
     font-size: 1.8rem;
   }

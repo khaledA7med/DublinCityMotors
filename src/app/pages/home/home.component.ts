@@ -17,6 +17,15 @@ import {
 import { FilterService } from 'src/app/shared/services/filter.service';
 import { Router } from '@angular/router';
 import { CarsService } from 'src/app/shared/services/pagesServices/cars.service';
+import { MessagesService } from 'src/app/shared/services/messages.service';
+
+interface Offer {
+  id?: number;
+  active: boolean;
+  validFrom: Date;
+  validUntil: Date;
+  description: string;
+}
 
 @Component({
   selector: 'app-home',
@@ -55,6 +64,7 @@ export class HomeComponent implements OnInit {
   selectedMake!: string;
   selectedModel!: string;
   selectedYear!: number;
+  offersData: Offer[] = [];
 
   @ViewChild('animatedSection', { static: true }) animatedSection!: ElementRef;
 
@@ -62,9 +72,9 @@ export class HomeComponent implements OnInit {
   showNavigationIndicators = false;
 
   images = [
-    '../../../assets/images/539154.jpg',
-    '../../../assets/images/jaguar-car-0h4vhh2g85m0elx1.jpg',
-    '../../../assets/images/shiny-hot-red-jaguar-car-6ato97yhe2zlhqi4.jpg',
+    '../../../assets/images/Slider (1).jpg',
+    '../../../assets/images/Slider (2).jpg',
+    // '../../../assets/images/shiny-hot-red-jaguar-car-6ato97yhe2zlhqi4.jpg',
   ];
 
   makes = [];
@@ -137,11 +147,13 @@ export class HomeComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private router: Router,
     private filterService: FilterService,
-    private carsService: CarsService
+    private carsService: CarsService,
+    private messages: MessagesService
   ) {}
 
   ngOnInit(): void {
     this.getMake();
+    this.getAllOffers();
     // this.spinner.show();
     // setTimeout(() => {
     //   this.spinner.hide();
@@ -158,6 +170,22 @@ export class HomeComponent implements OnInit {
     this.carsService.getCarModel(id).subscribe((res) => {
       this.models = res;
     });
+  }
+
+  getAllOffers() {
+    this.spinner.show();
+    return this.carsService.getAllOffers().subscribe(
+      (res) => {
+        if (res) {
+          this.spinner.hide();
+          this.offersData = res;
+        }
+      },
+      (error) => {
+        this.spinner.hide();
+        this.messages.toast(error.error.message, 'error');
+      }
+    );
   }
 
   @HostListener('window:scroll', [])

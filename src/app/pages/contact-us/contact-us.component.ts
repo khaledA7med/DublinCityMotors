@@ -30,14 +30,7 @@ export class ContactUsComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private modalService: NgbModal
   ) {}
-  ngOnInit(): void {
-    this.spinner.show();
-
-    setTimeout(() => {
-      /** spinner ends after 5 seconds */
-      this.spinner.hide();
-    }, 3000);
-  }
+  ngOnInit(): void {}
 
   openEnquiry() {
     this.modalRef = this.modalService.open(EnquireCarComponent, {
