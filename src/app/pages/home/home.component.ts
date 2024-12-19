@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
   images = [
     'assets/images/Slider (1).jpg',
     'assets/images/Slider (2).jpg',
-    // '../../../assets/images/shiny-hot-red-jaguar-car-6ato97yhe2zlhqi4.jpg',
+    // '../../../assets/images/shiny-hot-red-jaguar-car-6ato97yhe2zlhqi4.jpg'
   ];
 
   makes = [];
