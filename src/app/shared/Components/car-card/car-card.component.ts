@@ -13,9 +13,9 @@ export class CarCardComponent implements OnInit {
   @Input() allCars: any[] = [];
 
   images = [
-    '../../../assets/images/stock/1.jpg',
-    '../../../assets/images/stock/2.jpg',
-    '../../../assets/images/stock/3.jpg',
+    'assets/images/stock/1.jpg',
+    'assets/images/stock/2.jpg',
+    'assets/images/stock/3.jpg',
   ];
 
   constructor(

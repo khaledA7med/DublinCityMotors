@@ -246,6 +246,7 @@ export class ViewStockComponent implements OnInit, OnDestroy {
         this.spinner.hide();
       },
     });
+    this.spinner.hide();
     this.subscription.push(sub);
   }
 
